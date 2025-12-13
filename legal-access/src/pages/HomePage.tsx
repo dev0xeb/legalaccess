@@ -184,7 +184,7 @@ export function HomePage() {
               className="mt-12"
             >
               <button
-                onClick={openModal}
+                onClick={() => openModal()}
                 className="w-full md:w-auto px-8 py-4 text-lg font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
                 style={{
                   color: '#281e5d',
