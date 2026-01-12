@@ -1,19 +1,138 @@
-import { Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Mail, Check } from 'lucide-react';
 import TikTokLogo from '../assets/streamline-logos--tiktok-logo.svg';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribeMessage('Thank you for subscribing!');
+      setEmail('');
+      setTimeout(() => setSubscribeMessage(''), 3000);
+    }
+  };
+
   return (
     <footer id="footer" className="bg-neutral-dark text-white">
+      {/* Newsletter Section */}
+      <div className="relative overflow-hidden py-16" style={{ backgroundColor: '#1e0a3c' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Heading */}
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-extrabold mb-4 text-white"
+          >
+            Stop Guessing. Start Protecting.
+          </motion.h3>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-white mb-8 leading-relaxed"
+          >
+            Most legal advice is buried in 50-page documents. We translate the complex stuff into one 3-minute email every Tuesday. No billable hours, no "legalese," just the answers you actually need.
+          </motion.p>
+
+          {/* Three Benefit Cards */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+          >
+            {/* Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
+            >
+              <h4 className="text-white font-bold text-lg mb-2">Avoid Costly Mistakes</h4>
+              <p className="text-white/80 text-sm">Learn the red flags in contracts before you sign them.</p>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
+            >
+              <h4 className="text-white font-bold text-lg mb-2">Legal DIY</h4>
+              <p className="text-white/80 text-sm">Step-by-step guides for filing your own trademarks or NDAs.</p>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
+            >
+              <h4 className="text-white font-bold text-lg mb-2">Vetted Experts</h4>
+              <p className="text-white/80 text-sm">Access to a network of lawyers who won't charge you "big firm" prices.</p>
+            </motion.div>
+          </motion.div>
+
+          {/* Subscription Form */}
+          <motion.form
+            onSubmit={handleSubscribe}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-3 max-w-md"
+          >
+            <motion.input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              whileHover={{ scale: 1.02 }}
+              whileFocus={{ scale: 1.02 }}
+              className="flex-1 px-4 py-3 rounded-lg bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-neutral-dark font-medium"
+            />
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <Mail size={18} />
+              Subscribe
+            </motion.button>
+          </motion.form>
+
+          {/* Success Message */}
+          {subscribeMessage && (
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="mt-4 text-yellow-300 font-semibold flex items-center gap-2"
+            >
+              <Check size={20} />
+              {subscribeMessage}
+            </motion.div>
+          )}
+        </div>
+      </div>
+
+      {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              {/* <img
-                src={new URL('../assets/Logo.png', import.meta.url).href}
-                alt="Legal Access"
-                className="w-20 h-20 rounded-lg object-contain"
-              /> */}
               <span className="font-bold text-lg">Legal Access</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

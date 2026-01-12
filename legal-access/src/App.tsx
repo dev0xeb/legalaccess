@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Footer, CategoryModal } from './components';
+import { Header, Footer, CategoryModal, ArbitrationModal, WhatsAppWidget } from './components';
 import { ModalProvider } from './context/ModalContext';
 import {
   HomePage,
   ServicesPage,
-  HowItWorksPage,
-  ResourcesPage,
   AboutPage,
+  ContactPage,
   FormPage,
 } from './pages';
 
@@ -15,15 +14,16 @@ function App() {
     <ModalProvider>
       <Router>
         <CategoryModal />
+        <ArbitrationModal />
+        <WhatsAppWidget />
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
-              <Route path="/how-it-works" element={<HowItWorksPage />} />
-              <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/form/:category" element={<FormPage />} />
               <Route
                 path="*"

@@ -6,10 +6,9 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Services', href: '#services' },
-    { label: 'How it works', href: '#process' },
-    { label: 'Resourcea', href: '#' },
-    { label: 'About Us', href: '#footer' },
+    { label: 'Services', href: '/services' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -49,12 +48,12 @@ export function Header() {
           </nav>
 
           {/* Desktop CTA Button */}
-          <a
-            href="#cta"
+          <Link
+            to="/services"
             className="hidden md:inline-block px-6 py-2 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors"
           >
             Get Started
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -90,13 +89,13 @@ export function Header() {
                 </Link>
               )
             ))}
-            <a
-              href="#cta"
+            <Link
+              to="/services"
               className="block px-4 py-3 bg-primary text-white font-medium mt-2"
               onClick={() => setIsOpen(false)}
             >
               Get Started
-            </a>
+            </Link>
           </nav>
         )}
       </div>

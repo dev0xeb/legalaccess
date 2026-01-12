@@ -24,7 +24,7 @@ const categories = [
 ];
 
 export function CategoryModal() {
-  const { isOpen, closeModal, selectedCategories, openModal } = useModal();
+  const { isOpen, modalType, closeModal, selectedCategories, openModal } = useModal();
 
   useEffect(() => {
     const hasSeenModal = sessionStorage.getItem('categoryModalSeen');
@@ -44,7 +44,7 @@ export function CategoryModal() {
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen && modalType === 'category' && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

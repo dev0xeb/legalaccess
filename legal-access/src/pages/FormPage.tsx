@@ -21,6 +21,9 @@ const categoryTitles: Record<string, string> = {
   'tutors': 'Tutors',
   'students': 'Students',
   'individuals-businesses': 'For Individuals & Businesses',
+  'legal-protection': 'Legal Protection Membership',
+  'pro-bono-client': 'Pro Bono - Need Legal Aid',
+  'pro-bono-lawyer': 'Pro Bono - Register as Lawyer',
 };
 
 const categoryDescriptions: Record<string, string> = {
@@ -28,6 +31,9 @@ const categoryDescriptions: Record<string, string> = {
   'tutors': 'Share your expertise with law students and professionals seeking guidance.',
   'students': 'Access expert tutoring and learning resources to enhance your legal knowledge.',
   'individuals-businesses': 'Get professional legal support tailored to your needs.',
+  'legal-protection': 'Subscribe to our Legal Protection Membership for affordable legal support and guidance.',
+  'pro-bono-client': 'Get free legal aid and support for your legal challenges.',
+  'pro-bono-lawyer': 'Register your expertise to provide pro bono legal services and make a social impact.',
 };
 
 export function FormPage() {

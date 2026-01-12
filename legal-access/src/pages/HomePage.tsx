@@ -4,8 +4,6 @@ import { ServiceCard } from '../components/ServiceCard';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { Section } from '../components/Section';
 import { useModal } from '../context/ModalContext';
-// Load service images via `new URL(..., import.meta.url).href` to ensure
-// correct asset URLs when built with Vite.
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -14,7 +12,7 @@ const fadeInUp = {
 };
 
 export function HomePage() {
-  const { openModal } = useModal();
+  const { openModal, openArbitrationModal } = useModal();
 
   return (
     <div className="min-h-screen">
@@ -66,15 +64,19 @@ export function HomePage() {
         </motion.div>
       </Section>
 
-      {/* Services Section */}
+      {/* Our Services Section */}
       <Section id="services" className="bg-white">
-        <motion.div className="text-center mb-12" {...fadeInUp}>
+        <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#281e5d' }}>
-            Bridging You to Legal Expertise!
+            Our Services
           </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Three powerful solutions designed to meet your legal needs
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* 3-Column Grid (Desktop) / Carousel (Mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -107,37 +109,30 @@ export function HomePage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((benefit, index) => {
-            return (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="relative bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl p-8 overflow-hidden hover:shadow-lg transition-shadow min-h-96"
-              >
-                {/* Decorative background shape */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-200 to-transparent rounded-full -mr-16 -mt-16 opacity-30"></div>
-
-                {/* Large faded number */}
-                <div className="absolute right-4 md:-right-8 bottom-0 z-0 pointer-events-none">
-                  <span className="transform translate-x-6 md:translate-x-12 font-extrabold text-[140px] md:text-[220px] leading-none text-primary-light opacity-20 select-none">
-                    {index + 1}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10 text-left">
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: '#281e5d' }}>
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-800 text-base leading-relaxed max-w-xs">
-                    {benefit.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="relative bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl p-8 overflow-hidden hover:shadow-lg transition-shadow min-h-96"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-200 to-transparent rounded-full -mr-16 -mt-16 opacity-30"></div>
+              <div className="absolute right-4 md:-right-8 bottom-0 z-0 pointer-events-none">
+                <span className="transform translate-x-6 md:translate-x-12 font-extrabold text-[140px] md:text-[220px] leading-none text-primary-light opacity-20 select-none">
+                  {index + 1}
+                </span>
+              </div>
+              <div className="relative z-10 text-left">
+                <h3 className="text-2xl font-bold mb-3" style={{ color: '#281e5d' }}>
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-800 text-base leading-relaxed max-w-xs">
+                  {benefit.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </Section>
 
@@ -155,25 +150,25 @@ export function HomePage() {
 
             <div className="space-y-8">
               {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="flex gap-6"
-              >
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-lg">
-                    {step.number}
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex gap-6"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-lg">
+                      {step.number}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2" style={{ color: '#281e5d' }}>
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600">{step.description}</p>
-                </div>
-              </motion.div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#281e5d' }}>
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600">{step.description}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
 
@@ -221,6 +216,39 @@ export function HomePage() {
         </div>
       </Section>
 
+      {/* Online Arbitration Section */}
+      <Section className="relative bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden py-20">
+        <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2
+              className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight"
+              style={{ color: '#281e5d' }}
+            >
+              Online Arbitration
+            </motion.h2>
+
+            <motion.p
+              className="text-lg mb-6 leading-relaxed max-w-prose mx-auto"
+              style={{ color: '#281e5d' }}
+            >
+              We are building a digital-first dispute resolution center to help you resolve conflicts quickly, affordably, and securely—without the traditional courtroom hassle.
+            </motion.p>
+
+            <motion.button
+              onClick={openArbitrationModal}
+              className="px-8 py-4 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl text-lg"
+              style={{ backgroundColor: '#281e5d' }}
+            >
+              Learn More
+            </motion.button>
+          </motion.div>
+        </div>
+      </Section>
+
       {/* Testimonials Section */}
       <Section className="bg-gray-50">
         <motion.div className="text-center mb-12" {...fadeInUp}>
@@ -257,7 +285,6 @@ export function HomePage() {
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -272,7 +299,6 @@ export function HomePage() {
             </p>
           </motion.div>
 
-          {/* Right side - Buttons */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -304,36 +330,28 @@ export function HomePage() {
 
 const services = [
   {
-    title: 'Access Legal Experts',
-    description: 'Connect with verified lawyers for your legal needs',
+    title: 'Legal Protection Plans',
+    description: 'Subscription-based legal support for individuals and SMEs',
     image: new URL('../assets/LegalExpert.jpeg', import.meta.url).href,
-    backText: 'Experience a swift, confidential, and cost-effective way to settle disagreements without traditional court processes, leveraging certified arbitrators and secure digital tools.',
-    buttonText: 'Get Started',
-    buttonLink: '/form/legal-professionals',
+    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals and small businesses.',
+    buttonText: 'Join as Client',
+    buttonLink: 'https://forms.google.com/client-legal-protection',
   },
   {
-    title: 'Tutor Services',
-    description: 'Learn law with experienced educators',
+    title: 'Law Tutor Services',
+    description: 'Academic excellence and bar exam preparation for Law Students',
     image: new URL('../assets/Tutor.jpeg', import.meta.url).href,
-    backText: 'Excel in law. Bridge the gap between theory and practice with personalized academic and practical guidance.',
-    buttonText: 'Start Now',
-    buttonLink: '/form/tutors',
+    backText: 'Master legal concepts with personalized guidance. Bridge the gap between theory and practice with expert tutors for academic excellence and bar exam success.',
+    buttonText: 'Join as Student',
+    buttonLink: 'https://forms.google.com/student-law-tutor',
   },
   {
-    title: 'Legal Insurance',
-    description: 'Protect yourself with affordable insurance plans',
-    image: new URL('../assets/Insurance.jpeg', import.meta.url).href,
-    backText: 'Protect your future affordably. Secure comprehensive legal coverage designed for peace of mind.',
-    buttonText: 'Start Now',
-    buttonLink: '/form/legal-insurance',
-  },
-  {
-    title: 'Online Arbitration',
-    description: 'Resolve disputes online quickly',
+    title: 'Pro Bono (Community Justice)',
+    description: 'Community justice and free legal aid for those in need',
     image: new URL('../assets/Arbitration.jpeg', import.meta.url).href,
-    backText: 'Navigating legal challenges can be daunting. Get expert advice and support for your personal or business needs.',
-    buttonText: 'Start Now',
-    buttonLink: '/form/online-arbitration',
+    backText: 'Need Help? Get free legal aid. Lawyer? Register for social impact. Join our community justice initiative to make a difference.',
+    buttonText: 'Join Now',
+    buttonLink: 'https://forms.google.com/pro-bono-community-justice',
   },
 ];
 
@@ -344,7 +362,7 @@ const benefits = [
   },
   {
     title: 'Affordable Protection',
-    description: 'Gain peace of mind with cost-effective legal solutions and insurance.',
+    description: 'Gain peace of mind with cost-effective legal solutions and protection.',
   },
   {
     title: 'Seamless Process',
