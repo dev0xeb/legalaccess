@@ -18,7 +18,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1">
             <img
-              src={new URL('../assets/Logo.png', import.meta.url).href}
+              // src={new URL('../assets/Logo.png', import.meta.url).href}
               alt="Legal Access"
               className="w-100 h-100 rounded-lg object-contain"
             />
