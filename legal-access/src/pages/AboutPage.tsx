@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { LinkButton } from '../components/Button';
-import { Shield, User, BookOpen, Zap, Target, Heart } from 'lucide-react';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 18 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
+import { Shield, User, BookOpen } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
