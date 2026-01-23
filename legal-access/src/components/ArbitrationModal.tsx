@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Clock, Bell, Scale } from 'lucide-react';
+import { Sparkles, Clock, Bell, Scale } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
 export function ArbitrationModal() {
@@ -38,7 +38,7 @@ export function ArbitrationModal() {
               className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition-colors z-10 bg-gray-100 rounded-full p-2 hover:bg-gray-200"
               aria-label="Close modal"
             >
-              <X size={24} />
+              <img src={new URL('../assets/iconoir--cancel.svg', import.meta.url).href} alt="Close" className="w-6 h-6" />
             </button>
 
             {/* Content */}

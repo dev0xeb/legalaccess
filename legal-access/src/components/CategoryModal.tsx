@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 // Use normal anchor tags for external Google Form links
 import { useModal } from '../context/ModalContext';
 
@@ -92,7 +91,7 @@ export function CategoryModal() {
             aria-label="Close modal"
             style={{ zIndex: 9999 }}
           >
-            <X size={24} />
+            <img src={new URL('../assets/iconoir--cancel.svg', import.meta.url).href} alt="Close" className="w-6 h-6" />
           </button>
         </motion.div>
       )}
