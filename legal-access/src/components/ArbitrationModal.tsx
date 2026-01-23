@@ -34,7 +34,7 @@ export function ArbitrationModal() {
 
             <button
               onClick={closeModal}
-              className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition-colors z-10 bg-gray-100 rounded-full p-2 hover:bg-gray-200"
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors z-10 bg-gray-100 rounded-full p-2 hover:bg-gray-200"
               aria-label="Close modal"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

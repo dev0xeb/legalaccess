@@ -87,7 +87,7 @@ export function CategoryModal() {
           {/* Close button placed at overlay level so it remains visible during inner animations */}
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-gray-500 hover:text-primary-dark hover:bg-gray-100 p-2 rounded-full transition-colors"
+            className="absolute top-3 right-3 text-gray-500 hover:text-primary-dark hover:bg-gray-100 p-2 rounded-full transition-colors"
             aria-label="Close modal"
             style={{ zIndex: 9999 }}
           >
