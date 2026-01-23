@@ -1,4 +1,3 @@
-import { MessageCircle } from 'lucide-react';
 
 export function WhatsAppWidget() {
   const whatsappNumber = '+234905975147';
@@ -11,9 +10,13 @@ export function WhatsAppWidget() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact us on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 bg-accent-green text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 bg-transparent p-0 transition-transform duration-300 hover:scale-110"
     >
-      <MessageCircle size={32} />
+      <img
+        src={new URL('../assets/WhatsApp_Image_2025-12-11_at_16.54.25_71cc3f39-removebg-preview.png', import.meta.url).href}
+        alt="WhatsApp"
+        className="w-12 h-12 object-contain"
+      />
     </a>
   );
 }
