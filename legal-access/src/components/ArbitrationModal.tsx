@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Clock, Bell, Scale } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
+
+
 export function ArbitrationModal() {
   const { isOpen, modalType, closeModal } = useModal();
 
@@ -37,7 +39,18 @@ export function ArbitrationModal() {
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors z-10 bg-gray-100 rounded-full p-2 hover:bg-gray-200"
               aria-label="Close modal"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-6 h-6"
+              >
                 <path d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243" />
               </svg>
             </button>
