@@ -91,7 +91,9 @@ export function CategoryModal() {
             aria-label="Close modal"
             style={{ zIndex: 9999 }}
           >
-            <img src={new URL('../assets/iconoir--cancel.svg', import.meta.url).href} alt="Close" className="w-6 h-6" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243" />
+            </svg>
           </button>
         </motion.div>
       )}

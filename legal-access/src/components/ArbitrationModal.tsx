@@ -32,13 +32,14 @@ export function ArbitrationModal() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-accent-orange to-transparent opacity-10 rounded-full -mr-32 -mt-32"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent-green to-transparent opacity-10 rounded-full -ml-24 -mb-24"></div>
 
-            {/* Close button */}
             <button
               onClick={closeModal}
               className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition-colors z-10 bg-gray-100 rounded-full p-2 hover:bg-gray-200"
               aria-label="Close modal"
             >
-              <img src={new URL('../assets/iconoir--cancel.svg', import.meta.url).href} alt="Close" className="w-6 h-6" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243" />
+              </svg>
             </button>
 
             {/* Content */}
