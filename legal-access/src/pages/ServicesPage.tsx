@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
 import { Section } from '../components/Section';
-import { Shield, BookOpen, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 const containerVariants = {
