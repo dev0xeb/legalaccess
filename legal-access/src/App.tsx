@@ -7,6 +7,7 @@ import {
   AboutPage,
   ContactPage,
   FormPage,
+  PackagesPage,
 } from './pages';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/form/:category" element={<FormPage />} />
+              <Route path="/packages" element={<PackagesPage />} />
               <Route
                 path="*"
                 element={

@@ -12,7 +12,7 @@ const fadeInUp = {
 };
 
 export function HomePage() {
-  const { openModal, openArbitrationModal } = useModal();
+  const { openModal } = useModal();
 
   return (
     <div className="min-h-screen">
@@ -58,7 +58,7 @@ export function HomePage() {
             Are Legal Challenges Holding You Back?
           </h2>
           <p className="text-xl text-gray-100 mb-8 leading-relaxed">
-            Struggling with overwhelming legal costs, confusing terms, or the search for a trustworthy lawyer? 
+            Struggling with overwhelming legal costs, confusing terms, or the search for a trustworthy lawyer?
             Discover Legal Access, your simplified path to clear, affordable, and reliable legal assistance.
           </p>
         </motion.div>
@@ -95,6 +95,31 @@ export function HomePage() {
             </motion.div>
           ))}
         </div>
+      </Section>
+
+      {/* Legal Retention Plans Section */}
+      <Section className="bg-gray-50 py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary-dark">
+              Legal Retention Plans
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Secure ongoing legal support for your personal or business needs with our comprehensive retention packages.
+            </p>
+            <a
+              href="/packages"
+              className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary-dark transition-colors shadow-lg hover:shadow-xl"
+            >
+              View Packages
+            </a>
+          </motion.div>
+        </div>
+
       </Section>
 
       {/* Why Choose Us Section */}
@@ -216,35 +241,62 @@ export function HomePage() {
         </div>
       </Section>
 
-      {/* Online Arbitration Section */}
-      <Section className="relative bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden py-20">
-        <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-6">
+      {/* Pro Bono Section */}
+      <Section className="bg-gradient-to-br from-blue-100 to-blue-50 py-20">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h2
-              className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight"
-              style={{ color: '#281e5d' }}
-            >
-              Online Arbitration
-            </motion.h2>
+            <span className="inline-block px-4 py-1.5 bg-accent-orange text-white text-sm font-bold rounded-full mb-4">
+              Community Impact
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-dark leading-tight">
+              Pro Bono & Community Justice
+            </h2>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              Lex Access is committed to social impact. We bridge the gap for those in underserved communities by connecting them with dedicated legal professionals willing to offer their expertise for the public good. Justice shouldn't be a luxury.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://forms.google.com/pro-bono-community-justice"
+                className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Find a Pro Bono Lawyer
+              </a>
+              <a
+                href="https://forms.google.com/pro-bono-community-justice"
+                className="px-8 py-3 bg-transparent border-2 border-primary text-primary font-bold rounded-lg text-center hover:bg-primary hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Volunteer as a Lawyer
+              </a>
+            </div>
+          </motion.div>
 
-            <motion.p
-              className="text-lg mb-6 leading-relaxed max-w-prose mx-auto"
-              style={{ color: '#281e5d' }}
-            >
-              We are building a digital-first dispute resolution center to help you resolve conflicts quickly, affordably, and securely—without the traditional courtroom hassle.
-            </motion.p>
-
-            <motion.button
-              onClick={openArbitrationModal}
-              className="px-8 py-4 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl text-lg"
-              style={{ backgroundColor: '#281e5d' }}
-            >
-              Learn More
-            </motion.button>
+          {/* Online Arbitration Placeholder Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
+            <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 max-w-md w-full text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gray-200 text-gray-600 px-4 py-1 rounded-bl-xl text-xs font-bold uppercase tracking-wider">
+                Coming Soon
+              </div>
+              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <img src={new URL('../assets/Gavel.png', import.meta.url).href} alt="Arbitration" className="w-10 h-10 opacity-50" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-400 mb-3">Online Arbitration</h3>
+              <p className="text-gray-400">
+                A digital-first dispute resolution center. Resolve conflicts quickly and securely.
+              </p>
+            </div>
           </motion.div>
         </div>
       </Section>
@@ -330,30 +382,47 @@ export function HomePage() {
 
 const services = [
   {
-    title: 'Legal Protection Plans',
-    description: 'Subscription-based legal support for individuals and SMEs',
+    title: 'Individuals',
+    description: 'Practical, affordable legal help for everyday matters and disputes. Includes contract reviews, dispute resolution, and family & personal law.',
     image: new URL('../assets/LegalExpert.jpeg', import.meta.url).href,
-    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals and small businesses.',
+    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals.',
     buttonText: 'Join as Client',
     buttonLink: 'https://forms.google.com/client-legal-protection',
   },
   {
-    title: 'Law Tutor Services',
-    description: 'Academic excellence and bar exam preparation for Law Students',
+    title: 'SMEs & Businesses',
+    description: 'Subscription-based legal support for growing enterprises and entrepreneurs. Includes business registration, compliance, and ongoing legal protection.',
+    image: new URL('../assets/Arbitration.jpeg', import.meta.url).href,
+    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for growing businesses.',
+    buttonText: 'Join as Business',
+    buttonLink: 'https://forms.google.com/client-legal-protection',
+  },
+  {
+    title: 'Law Students',
+    description: 'Bar exam prep, tutoring, and practical training from experienced legal minds.',
     image: new URL('../assets/Tutor.jpeg', import.meta.url).href,
-    backText: 'Master legal concepts with personalized guidance. Bridge the gap between theory and practice with expert tutors for academic excellence and bar exam success.',
+    backText: 'As a Student: Master legal concepts with personalized guidance. Bridge the gap between theory and practice with expert tutors for academic excellence and bar exam success.',
+    // "As a Student" prefix to match "Side B" request? Prompt said Side B: "As a Student". Side A "As a Tutor".
+    // I will adjust the Title/Description for "As a Tutor" logic?
+    // Prompt: Side A: "As a Tutor". Side B: "As a Student".
+    // But the card title is "Law Students" or "Law Tutor Services"?
+    // The prompt says "Law Students... Bar exam prep...".
+    // Maybe the Front should say "As a Tutor" or "For Students"?
+    // "Side A (Front): 'As a Tutor' (Content focused on guidance)."
+    // "Side B (Back): 'As a Student' (Content focused on learning/outcomes)."
+    // My current card Title is "Law Students".
+    // I will try to match the prompt closely.
+    // Front: Title "Law Students", Desc "Bar exam prep...".
+    // Back: "As a Student..."
+    // But where does "As a Tutor" go? Maybe that's for the PRO lesson?
+    // Prompt: "Legal Services Flip-Cards: For the legal services section... Side A... Side B..."
+    // Maybe this applies to ALL cards? "As a Tutor"/"As a Student" sounds specific to the education card.
+    // I will put "As a Student" content on the back of the student card.
     buttonText: 'Join as Student',
     buttonLink: 'https://forms.google.com/student-law-tutor',
   },
-  {
-    title: 'Pro Bono (Community Justice)',
-    description: 'Community justice and free legal aid for those in need',
-    image: new URL('../assets/Arbitration.jpeg', import.meta.url).href,
-    backText: 'Need Help? Get free legal aid. Lawyer? Register for social impact. Join our community justice initiative to make a difference.',
-    buttonText: 'Join Now',
-    buttonLink: 'https://forms.google.com/pro-bono-community-justice',
-  },
 ];
+
 
 const benefits = [
   {

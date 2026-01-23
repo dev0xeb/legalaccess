@@ -1,21 +1,9 @@
-import { Linkedin, Twitter, Instagram, Mail, Check } from 'lucide-react';
+import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import TikTokLogo from '../assets/streamline-logos--tiktok-logo.svg';
-import { useState } from 'react';
+
 import { motion } from 'framer-motion';
 
 export function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribeMessage, setSubscribeMessage] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribeMessage('Thank you for subscribing!');
-      setEmail('');
-      setTimeout(() => setSubscribeMessage(''), 3000);
-    }
-  };
-
   return (
     <footer id="footer" className="bg-neutral-dark text-white">
       {/* Newsletter Section */}
@@ -82,48 +70,30 @@ export function Footer() {
             </motion.div>
           </motion.div>
 
-          {/* Subscription Form */}
-          <motion.form
-            onSubmit={handleSubscribe}
+          {/* Subscription Form / Sign Up Options */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 max-w-md"
+            className="flex flex-col sm:flex-row gap-4 max-w-lg"
           >
-            <motion.input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              whileHover={{ scale: 1.02 }}
-              whileFocus={{ scale: 1.02 }}
-              className="flex-1 px-4 py-3 rounded-lg bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-neutral-dark font-medium"
-            />
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl transition-shadow"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all hover:scale-105"
             >
-              <Mail size={18} />
-              Subscribe
-            </motion.button>
-          </motion.form>
-
-          {/* Success Message */}
-          {subscribeMessage && (
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="mt-4 text-yellow-300 font-semibold flex items-center gap-2"
+              Sign up as Client
+            </a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-transparent border-2 border-white/30 text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all hover:scale-105"
             >
-              <Check size={20} />
-              {subscribeMessage}
-            </motion.div>
-          )}
+              Sign up as Lawyer
+            </a>
+          </motion.div>
         </div>
       </div>
 
@@ -133,10 +103,10 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="font-bold text-lg">Legal Access</span>
+              <span className="font-bold text-lg">Lex Access</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Legal Access is your digital gateway to simplified legal solutions and expert guidance. We connect individuals, businesses, and law students with verified professionals and essential resources.
+              Lex Access is your digital gateway to simplified legal solutions and expert guidance. We connect individuals, businesses, and law students with verified professionals and essential resources.
             </p>
           </div>
 

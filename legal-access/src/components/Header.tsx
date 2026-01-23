@@ -17,11 +17,7 @@ export function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1">
-            <img
-              // src={new URL('../assets/Logo.png', import.meta.url).href}
-              alt="Legal Access"
-              className="w-100 h-100 rounded-lg object-contain"
-            />
+            <span className="text-2xl font-bold text-primary-dark tracking-tight">Lex Access</span>
           </Link>
 
           {/* Desktop Navigation */}

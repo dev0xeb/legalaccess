@@ -24,12 +24,25 @@ const itemVariants = {
   },
 };
 
-const services = [
+
+interface ServiceItem {
+  id: string;
+  icon: typeof Shield;
+  title: string;
+  description: string;
+  gradient: string;
+  features: string[];
+  buttonText: string;
+  buttonLink: string;
+  dualButtons?: boolean;
+}
+
+const services: ServiceItem[] = [
   {
-    id: 'legal-protection',
+    id: 'individuals',
     icon: Shield,
-    title: 'Legal Protection Plans',
-    description: 'Subscription-based legal support for individuals and small-to-medium enterprises (SMEs). Get access to verified lawyers and comprehensive legal guidance.',
+    title: 'Individuals',
+    description: 'Practical, affordable legal help for everyday matters and disputes. Includes contract reviews, dispute resolution, and family & personal law.',
     gradient: 'from-primary-light to-primary',
     features: [
       'Affordable membership plans',
@@ -38,36 +51,37 @@ const services = [
       'Confidential support',
     ],
     buttonText: 'Join as Client',
-    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
+    buttonLink: 'https://forms.google.com/client-legal-protection',
+  },
+  {
+    id: 'sme',
+    icon: Shield,
+    title: 'SMEs & Businesses',
+    description: 'Subscription-based legal support for growing enterprises and entrepreneurs. Includes business registration, compliance, and ongoing legal protection.',
+    gradient: 'from-accent-orange to-accent-orange',
+    features: [
+      'Business registration & Incorporation',
+      'Compliance & Contract Management',
+      'Ongoing legal protection',
+      'Dedicated support',
+    ],
+    buttonText: 'Join as Business',
+    buttonLink: 'https://forms.google.com/client-legal-protection',
   },
   {
     id: 'law-tutors',
     icon: BookOpen,
-    title: 'Law Tutor Services',
+    title: 'Law Students',
     description: 'Academic excellence and bar exam preparation for law students. Learn from experienced educators with personalized guidance.',
     gradient: 'from-accent-green to-accent-green',
     features: [
-      'Expert tutors',
-      'Bar exam preparation',
-      'Flexible schedules',
-      'One-on-one sessions',
+      'Bar exam coaching',
+      'One-on-one tutoring',
+      'Practical clinics & mentorship',
+      'Internship connections',
     ],
     buttonText: 'Join as Student',
     buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfIiPrZ0ZNKnjLpgsotUEeKKPwEJmXp4fLEsQdvLUPAM62oLw/viewform',
-  },
-  {
-    id: 'pro-bono',
-    icon: Heart,
-    title: 'Pro Bono Services',
-    description: 'Community justice and pro bono support. Get free legal aid if you need help, or register as a lawyer to provide social impact.',
-    gradient: 'from-accent-orange to-accent-orange',
-    features: [
-      'Free legal aid for those in need',
-      'Community justice initiatives',
-      'Social impact opportunities',
-      'Make a difference',
-    ],
-    dualButtons: true,
   },
 ];
 
@@ -173,7 +187,7 @@ export function ServicesPage() {
               className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-all ${currentSlide === 0
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-primary text-white hover:bg-primary-dark'
-              }`}
+                }`}
               whileHover={currentSlide !== 0 ? { scale: 1.05 } : {}}
             >
               <ChevronLeft size={20} />
@@ -185,7 +199,7 @@ export function ServicesPage() {
               className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-all ${currentSlide === services.length - 1
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-primary text-white hover:bg-primary-dark'
-              }`}
+                }`}
               whileHover={currentSlide !== services.length - 1 ? { scale: 1.05 } : {}}
             >
               Next
@@ -283,7 +297,7 @@ export function ServicesPage() {
 
 // Helper component to render individual service cards
 interface ServiceCardComponentProps {
-  service: typeof services[0];
+  service: ServiceItem;
 }
 
 function ServiceCardComponent({ service }: ServiceCardComponentProps) {
