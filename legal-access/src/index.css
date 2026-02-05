@@ -116,17 +116,18 @@ button:focus-visible {
   border-radius: 0.375rem;
 }
 
-/* Force white text on all brand buttons and brand-colored backgrounds to ensure absolute consistency */
-button,
-a.inline-block,
-a.block.text-center,
-[class*="bg-primary"],
-[class*="bg-accent-"],
+/* Force white text ONLY on brand-colored backgrounds to satisfy the white-text standard.
+   Note: We avoid [class*="bg-"] as it incorrectly catches hover:bg-* variants. */
 .bg-primary,
 .bg-primary-dark,
 .bg-primary-darker,
 .bg-accent-green,
-.bg-accent-orange {
+.bg-accent-orange,
+button.bg-primary,
+button.bg-primary-dark,
+button.bg-primary-darker,
+button.bg-accent-green,
+button.bg-accent-orange {
   color: white !important;
 }
 

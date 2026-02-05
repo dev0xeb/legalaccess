@@ -370,7 +370,7 @@ const services = [
     image: new URL('../assets/LegalExpert.jpeg', import.meta.url).href,
     backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals.',
     buttonText: 'Join as Client',
-    buttonLink: 'https://forms.google.com/client-legal-protection',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
   },
   {
     title: 'SMEs & Businesses',
@@ -378,7 +378,7 @@ const services = [
     image: new URL('../assets/Arbitration.jpeg', import.meta.url).href,
     backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for growing businesses.',
     buttonText: 'Join as Business',
-    buttonLink: 'https://forms.google.com/client-legal-protection',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
   },
   {
     title: 'Law Students',
@@ -402,7 +402,7 @@ const services = [
     // Maybe this applies to ALL cards? "As a Tutor"/"As a Student" sounds specific to the education card.
     // I will put "As a Student" content on the back of the student card.
     buttonText: 'Join as Student',
-    buttonLink: 'https://forms.google.com/student-law-tutor',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfIiPrZ0ZNKnjLpgsotUEeKKPwEJmXp4fLEsQdvLUPAM62oLw/viewform',
   },
 ];
 
