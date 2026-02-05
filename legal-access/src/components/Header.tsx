@@ -12,12 +12,12 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 glass-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1">
-            <span className="text-2xl font-bold text-primary-dark tracking-tight">Lex Access</span>
+            <span className="text-2xl font-extrabold text-primary-darker tracking-tight">Lex Access</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -46,7 +46,7 @@ export function Header() {
           {/* Desktop CTA Button */}
           <Link
             to="/services"
-            className="hidden md:inline-block px-6 py-2 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors"
+            className="hidden md:inline-block px-6 py-2 bg-primary hover:bg-primary-dark text-white font-bold rounded-full transition-all shadow-md active:scale-95"
           >
             Get Started
           </Link>
@@ -87,7 +87,7 @@ export function Header() {
             ))}
             <Link
               to="/services"
-              className="block px-4 py-3 bg-primary text-white font-medium mt-2"
+              className="block px-4 py-3 bg-primary text-white font-bold mt-2 rounded-lg text-center"
               onClick={() => setIsOpen(false)}
             >
               Get Started

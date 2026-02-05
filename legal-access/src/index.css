@@ -1,5 +1,22 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@theme {
+  --color-primary-darker: #00264D;
+  --color-primary-dark: #003D7A;
+  --color-primary: #0052A3;
+  --color-primary-light: #6BA3D0;
+
+  --color-accent-green: #1B7F3D;
+  --color-accent-yellow: #FFA500;
+  --color-accent-orange: #FF6B35;
+
+  --color-neutral-dark: #1F1F1F;
+  --color-neutral-light: #F5F5F5;
+
+  --font-sans: 'Inter', sans-serif;
+}
 
 * {
   transition-property: color;
@@ -15,18 +32,32 @@ body {
   background-color: white;
   color: #1f1f1f;
   font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+.glass-header {
+  @apply backdrop-blur-md bg-white/80 border-b border-gray-200/50;
+}
+
+.glass-card {
+  @apply backdrop-blur-sm bg-white/40 border border-white/20;
+}
+
+
+
 
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 3rem;
-    line-height: 1;
+    font-size: 4.5rem;
+    line-height: 1.1;
   }
 }
 
@@ -34,12 +65,13 @@ h2 {
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 @media (min-width: 768px) {
   h2 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 3.5rem;
+    line-height: 1.2;
   }
 }
 
@@ -51,8 +83,8 @@ h3 {
 
 @media (min-width: 768px) {
   h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -82,6 +114,20 @@ button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #0052A3;
   border-radius: 0.375rem;
+}
+
+/* Force white text on all brand buttons and brand-colored backgrounds to ensure absolute consistency */
+button,
+a.inline-block,
+a.block.text-center,
+[class*="bg-primary"],
+[class*="bg-accent-"],
+.bg-primary,
+.bg-primary-dark,
+.bg-primary-darker,
+.bg-accent-green,
+.bg-accent-orange {
+  color: white !important;
 }
 
 /* Smooth scrollbar styling */

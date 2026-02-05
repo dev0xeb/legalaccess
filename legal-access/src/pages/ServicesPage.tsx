@@ -51,7 +51,7 @@ const services: ServiceItem[] = [
       'Confidential support',
     ],
     buttonText: 'Join as Client',
-    buttonLink: 'https://forms.google.com/client-legal-protection',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
   },
   {
     id: 'sme',
@@ -66,7 +66,7 @@ const services: ServiceItem[] = [
       'Dedicated support',
     ],
     buttonText: 'Join as Business',
-    buttonLink: 'https://forms.google.com/client-legal-protection',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
   },
   {
     id: 'law-tutors',
@@ -98,9 +98,9 @@ export function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e0a3c]">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-dark via-primary to-primary-light text-white py-20 md:py-32 min-h-80">
+      <section className="bg-gradient-to-r from-primary-darker via-primary-dark to-primary text-white py-20 md:py-32 min-h-80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -125,7 +125,7 @@ export function ServicesPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4">
             Three Pillars of Legal Support
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -217,7 +217,7 @@ export function ServicesPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4">
             How It Works
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -283,7 +283,7 @@ export function ServicesPage() {
           </p>
           <motion.a
             href="/"
-            className="inline-block px-8 py-4 bg-white text-primary hover:bg-gray-100 font-bold rounded-full transition-all"
+            className="inline-block px-8 py-4 bg-primary text-white hover:bg-primary-dark font-bold rounded-full transition-all shadow-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -310,7 +310,7 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
       whileHover={{ translateY: -8 }}
     >
       {/* Card Header with Icon */}
-      <div className={`bg-[#1e0a3c] p-8 flex flex-col justify-center items-center min-h-52`}>
+      <div className={`bg-primary-darker p-8 flex flex-col justify-center items-center min-h-52`}>
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -351,7 +351,7 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
               href="https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full text-center transition-all duration-300"
+              className="flex-1 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -361,7 +361,7 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
               href="https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-accent-green hover:bg-green-700 text-white font-medium rounded-full text-center transition-all duration-300"
+              className="flex-1 px-6 py-3 bg-accent-green hover:bg-green-700 text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -373,7 +373,7 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
             href={service.buttonLink!}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full text-center transition-all duration-300"
+            className="inline-block w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

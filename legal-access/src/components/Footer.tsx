@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer id="footer" className="bg-neutral-dark text-white">
       {/* Newsletter Section */}
-      <div className="relative overflow-hidden py-16" style={{ backgroundColor: '#1e0a3c' }}>
+      <div className="relative overflow-hidden py-20 bg-primary-darker">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Heading */}
           <motion.h3
@@ -81,7 +81,7 @@ export function Footer() {
               href="https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-accent-yellow to-accent-orange text-white font-bold rounded-full flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all hover:scale-105"
             >
               Sign up as Client
             </a>
@@ -89,7 +89,7 @@ export function Footer() {
               href="https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-transparent border-2 border-white/30 text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all hover:scale-105"
+              className="px-6 py-3 bg-primary text-white font-bold rounded-full flex items-center justify-center gap-2 hover:bg-primary-dark transition-all hover:scale-105 shadow-lg border border-white/20"
             >
               Sign up as Lawyer
             </a>

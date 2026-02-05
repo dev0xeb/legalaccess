@@ -50,16 +50,8 @@ export function ServiceCard({
             style={{ backgroundImage: `url(${image})` }}
           />
 
-          <div
-            className="absolute inset-0 flex flex-col justify-end p-6 text-white"
-            style={{ backgroundColor: 'rgba(0,0,0,0.18)' }}
-          >
-            <h3
-              className="text-2xl font-bold"
-              style={{
-                textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000'
-              }}
-            >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 text-white">
+            <h3 className="text-3xl font-extrabold tracking-tight">
               {title}
             </h3>
           </div>
@@ -74,16 +66,14 @@ export function ServiceCard({
           }}
           transition={{ duration: 0.6 }}
           style={{ backfaceVisibility: 'hidden' }}
-          className="absolute w-full h-full bg-gradient-to-br from-primary-dark to-primary p-6 flex flex-col justify-between text-black rounded-lg"
+          className="absolute w-full h-full bg-primary-darker p-8 flex flex-col justify-between text-white rounded-lg shadow-inner"
         >
-          <p className="text-[32px] leading-relaxed text-black text-left mx-4 my-6">{backText}</p>
+          <div className="flex-1 flex items-center justify-center p-2">
+            <p className="text-xl md:text-2xl leading-relaxed font-medium text-white text-center">{backText}</p>
+          </div>
           <Link
             to={buttonLink}
-            className="block w-full px-4 py-2 text-sm font-medium rounded-full transition-colors text-center"
-            style={{
-              backgroundColor: '#281e5d',
-              color: 'white',
-            }}
+            className="block w-full px-6 py-3 text-lg font-bold rounded-full bg-primary text-white hover:bg-primary-light transition-all transform hover:scale-105 text-center mt-4 shadow-lg border border-white/20"
           >
             {buttonText}
           </Link>
@@ -98,13 +88,13 @@ export function ServiceCard({
       className={`rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow ${className}`}
     >
       {image ? (
-        <div className="relative h-48 bg-gray-200 overflow-hidden">
+        <div className="relative h-56 bg-gray-200 overflow-hidden">
           <div
-            className="w-full h-full bg-center bg-cover hover:scale-105 transition-transform"
+            className="w-full h-full bg-center bg-cover hover:scale-110 transition-transform duration-500"
             style={{ backgroundImage: `url(${image})` }}
           />
-          <div className="absolute inset-0 flex flex-col justify-end p-6 text-white" style={{ backgroundColor: 'rgba(0,0,0,0.38)' }}>
-            <h3 className="text-xl font-bold">{title}</h3>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
+            <h3 className="text-2xl font-bold">{title}</h3>
           </div>
         </div>
       ) : (

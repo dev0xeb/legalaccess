@@ -84,7 +84,7 @@ export function ArbitrationModal() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-2xl md:text-3xl font-semibold text-primary-dark mb-2"
+                className="text-2xl md:text-3xl font-semibold text-primary-darker mb-2"
               >
                 Digital Dispute Resolution
               </motion.h2>
@@ -132,7 +132,7 @@ export function ArbitrationModal() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.995 }}
                 onClick={closeModal}
-                className="w-full px-6 py-3 bg-primary-dark text-white font-semibold rounded-lg transition-shadow duration-200 shadow-sm hover:shadow-md"
+                className="w-full px-6 py-3 bg-primary-darker text-white font-semibold rounded-lg transition-shadow duration-200 shadow-sm hover:shadow-md"
               >
                 Notify Me
               </motion.button>

@@ -15,12 +15,12 @@ interface LinkButtonProps extends ButtonProps {
   href: string;
 }
 
-const baseStyles = 'font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary';
+const baseStyles = 'font-bold rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary text-white text-center';
 
 const variantStyles = {
-  primary: 'bg-primary hover:bg-primary-dark text-white',
-  secondary: 'bg-accent-green hover:bg-opacity-90 text-white',
-  outline: 'bg-transparent border-2 border-primary text-primary',
+  primary: 'bg-primary hover:bg-primary-dark',
+  secondary: 'bg-accent-green hover:bg-opacity-90',
+  outline: 'bg-primary-darker border-2 border-primary hover:bg-primary',
 };
 
 const sizeStyles = {

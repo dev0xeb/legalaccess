@@ -20,14 +20,14 @@ export function HomePage() {
       <Section className="bg-gradient-to-r from-gray-50 to-white pt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeInUp}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight" style={{ color: '#281e5d' }}>
+            <h1 className="mb-6 leading-tight text-primary-darker">
               Justice Simplified. Access Unlocked.
             </h1>
-            <p className="text-2xl md:text-3xl mb-8 leading-relaxed" style={{ color: '#281e5d' }}>
+            <p className="text-xl md:text-2xl mb-8 leading-relaxed text-gray-700">
               Your trusted digital gateway to legal expertise, protection, and education in Nigeria.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#services" className="inline-block px-8 py-4 text-lg font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 border-2" style={{ color: '#281e5d', borderColor: '#281e5d' }}>
+              <a href="#services" className="inline-block px-8 py-4 text-lg font-bold rounded-full transition-all bg-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                 Discover Services
               </a>
             </div>
@@ -49,7 +49,7 @@ export function HomePage() {
       </Section>
 
       {/* Problem Section */}
-      <Section className="text-white" style={{ backgroundColor: '#281e5d' }}>
+      <Section className="bg-primary-darker text-white">
         <motion.div
           {...fadeInUp}
           className="max-w-3xl text-center"
@@ -67,7 +67,7 @@ export function HomePage() {
       {/* Our Services Section */}
       <Section id="services" className="bg-white">
         <motion.div className="text-center mb-16" {...fadeInUp}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#281e5d' }}>
+          <h2 className="mb-4 text-primary-darker">
             Our Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -113,7 +113,7 @@ export function HomePage() {
             </p>
             <a
               href="/packages"
-              className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary-dark transition-colors shadow-lg hover:shadow-xl"
+              className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               View Packages
             </a>
@@ -125,8 +125,8 @@ export function HomePage() {
       {/* Why Choose Us Section */}
       <Section className="bg-gradient-to-b from-gray-50 to-white">
         <motion.div className="text-center mb-16" {...fadeInUp}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#281e5d' }}>
-            Why Choose Legal Access?
+          <h2 className="mb-4 text-primary-darker">
+            Why Choose Lex Access?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover what makes us the trusted choice for legal solutions in Nigeria
@@ -149,7 +149,7 @@ export function HomePage() {
                 </span>
               </div>
               <div className="relative z-10 text-left">
-                <h3 className="text-2xl font-bold mb-3" style={{ color: '#281e5d' }}>
+                <h3 className="mb-3 text-primary-darker">
                   {benefit.title}
                 </h3>
                 <p className="text-gray-800 text-base leading-relaxed max-w-xs">
@@ -167,8 +167,7 @@ export function HomePage() {
           <div>
             <motion.h2
               {...fadeInUp}
-              className="text-4xl md:text-5xl font-bold mb-12"
-              style={{ color: '#281e5d' }}
+              className="mb-12 text-primary-darker"
             >
               Your Path to Legal Clarity in 3 Simple Steps
             </motion.h2>
@@ -188,7 +187,7 @@ export function HomePage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#281e5d' }}>
+                    <h3 className="mb-2 text-primary-darker">
                       {step.title}
                     </h3>
                     <p className="text-gray-600">{step.description}</p>
@@ -205,21 +204,7 @@ export function HomePage() {
             >
               <button
                 onClick={() => openModal()}
-                className="w-full md:w-auto px-8 py-4 text-lg font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
-                style={{
-                  color: '#281e5d',
-                  borderColor: '#281e5d',
-                  borderWidth: '2px',
-                  backgroundColor: 'transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#281e5d';
-                  e.currentTarget.style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#281e5d';
-                }}
+                className="w-full md:w-auto px-10 py-4 text-lg font-bold rounded-full transition-all bg-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Start Your Journey Now
               </button>
@@ -252,7 +237,7 @@ export function HomePage() {
             <span className="inline-block px-4 py-1.5 bg-accent-orange text-white text-sm font-bold rounded-full mb-4">
               Community Impact
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-dark leading-tight">
+            <h2 className="mb-6 leading-tight">
               Pro Bono & Community Justice
             </h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -269,7 +254,7 @@ export function HomePage() {
               </a>
               <a
                 href="https://forms.google.com/pro-bono-community-justice"
-                className="px-8 py-3 bg-transparent border-2 border-primary text-primary font-bold rounded-lg text-center hover:bg-primary hover:text-white transition-colors"
+                className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-all shadow-md hover:shadow-lg"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -304,7 +289,7 @@ export function HomePage() {
       {/* Testimonials Section */}
       <Section className="bg-gray-50">
         <motion.div className="text-center mb-12" {...fadeInUp}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#281e5d' }}>
+          <h2 className="mb-4 text-primary-darker">
             What Our Clients Say
           </h2>
         </motion.div>
@@ -326,14 +311,12 @@ export function HomePage() {
       {/* CTA Section */}
       <Section
         id="cta"
-        className="text-white"
+        className="text-white relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${new URL('../assets/background.jpeg', import.meta.url).href})`,
+          background: `linear-gradient(rgba(0, 38, 77, 0.8), rgba(0, 38, 77, 0.8)), url(${new URL('../assets/background.jpeg', import.meta.url).href})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundBlendMode: 'overlay',
-          backdropFilter: 'blur(2px)',
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -342,7 +325,7 @@ export function HomePage() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
+            <h2 className="mb-6 leading-tight !text-white">
               Ready to Transform Your Legal Experience?
             </h2>
 
@@ -361,7 +344,7 @@ export function HomePage() {
               onClick={() => openModal(['For Individuals & Businesses', 'Students'])}
               variant="outline"
               size="lg"
-              className="border-2 w-full text-center text-white border-white focus:ring-0 transition-none"
+              className="w-full text-center font-bold shadow-lg"
             >
               For Individuals & Businesses
             </Button>
@@ -369,7 +352,7 @@ export function HomePage() {
               onClick={() => openModal(['Legal Professionals', 'Tutors'])}
               variant="outline"
               size="lg"
-              className="border-2 w-full text-center text-white border-white focus:ring-0 transition-none"
+              className="w-full text-center font-bold shadow-lg"
             >
               For Legal Professionals & Tutors
             </Button>

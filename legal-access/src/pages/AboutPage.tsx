@@ -54,7 +54,7 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-50">
       {/* Hero / Narrative Section */}
-      <Section className="bg-gradient-to-r from-primary-dark via-primary to-primary-light text-primary-dark py-20 md:py-32">
+      <Section className="bg-gradient-to-r from-primary-darker via-primary-dark to-primary text-white py-20 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,13 +66,13 @@ export function AboutPage() {
           <div className="space-y-6 max-w-4xl">
             <div>
               <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
-              <p className="text-lg md:text-xl text-primary-dark text-opacity-95 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
                 To democratize access to justice in Nigeria by leveraging technology to seamlessly connect individuals and businesses with qualified legal professionals, fostering a transparent, efficient, and equitable legal ecosystem.
               </p>
             </div>
             <div>
               <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
-              <p className="text-lg md:text-xl text-primary-dark text-opacity-95 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
                 To be the leading and most trusted digital gateway for legal services in Nigeria, empowering every Nigerian to confidently navigate legal challenges and promoting a just and informed society.
               </p>
             </div>
@@ -88,7 +88,7 @@ export function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4">
             Who We Serve
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +109,7 @@ export function AboutPage() {
               <motion.div
                 key={s.id}
                 variants={itemVariants}
-                className="bg-[#281e5d] rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100"
+                className="bg-primary-darker rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col border border-white/10"
                 whileHover={{ translateY: -8 }}
               >
                 {/* Icon Header */}
@@ -149,7 +149,7 @@ export function AboutPage() {
 
                 {/* CTA Button */}
                 <div className="mt-auto w-full">
-                  <LinkButton href={s.cta.href} className="w-full text-center !text-white border-2 border-white bg-transparent" variant="primary" size="md">
+                  <LinkButton href={s.cta.href} className="w-full text-center font-bold shadow-md" variant="primary" size="md">
                     {s.cta.text}
                   </LinkButton>
                 </div>
@@ -169,7 +169,7 @@ export function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4">
             Areas of Expertise
           </h2>
         </motion.div>
@@ -197,21 +197,21 @@ export function AboutPage() {
               </motion.div>
             ))}
           </div>
-          <p className="text-center text-xl text-primary mt-12 font-medium italic">
+          <p className="text-center text-xl text-primary-dark mt-12 font-semibold italic">
             …and lots more. Lex Access is there for you.
           </p>
         </div>
       </Section>
-      <Section className="bg-gradient-to-r from-primary-dark via-primary to-primary-light text-[#281e5d] text-center py-20 md:py-32">
+      <Section className="bg-primary-darker text-white text-center py-20 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h3 className="mb-6 leading-tight !text-white">
             Ready to Get Started?
           </h3>
-          <p className="text-lg md:text-xl text-[#281e5d] text-opacity-95 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
             Choose the category that best fits your need and follow the quick signup to connect with our experts.
           </p>
           <motion.div
@@ -226,7 +226,7 @@ export function AboutPage() {
               </LinkButton>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <LinkButton href="/contact" variant="outline" size="md">
+              <LinkButton href="/contact" variant="primary" size="md">
                 Contact Us
               </LinkButton>
             </motion.div>

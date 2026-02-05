@@ -71,7 +71,7 @@ export function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <Section className="bg-[#1e0a3c] text-white py-20 md:py-32">
+      <Section className="bg-primary-darker text-white py-20 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export function ContactPage() {
             >
               <img src={mailIcon} alt="Mail" className="w-12 h-12" />
             </motion.div>
-            <h3 className="text-xl font-bold text-primary-dark mb-4">Email</h3>
+            <h3 className="text-xl font-bold text-primary-darker mb-4">Email</h3>
             <a
               href="mailto:info@legalaccess.com"
               className="text-gray-700 hover:text-primary transition-colors font-medium"
@@ -130,7 +130,7 @@ export function ContactPage() {
             >
               <img src={phoneIcon} alt="Phone" className="w-12 h-12" />
             </motion.div>
-            <h3 className="text-xl font-bold text-primary-dark mb-4">Phone</h3>
+            <h3 className="text-xl font-bold text-primary-darker mb-4">Phone</h3>
             <a
               href="tel:+234905975147"
               className="text-gray-700 hover:text-primary transition-colors font-medium"
@@ -152,7 +152,7 @@ export function ContactPage() {
             >
               <img src={whatsappIcon} alt="WhatsApp" className="w-12 h-12" />
             </motion.div>
-            <h3 className="text-xl font-bold text-primary-dark mb-6">WhatsApp</h3>
+            <h3 className="text-xl font-bold text-primary-darker mb-6">WhatsApp</h3>
             <motion.a
               href={whatsappUrl}
               target="_blank"
@@ -181,7 +181,7 @@ export function ContactPage() {
               <MapPin className="text-primary flex-shrink-0" size={32} />
             </motion.div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-primary-dark mb-4">
+              <h3 className="text-2xl font-bold text-primary-darker mb-4">
                 Office Address
               </h3>
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -209,7 +209,7 @@ export function ContactPage() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4 text-center">
             Send us a Message
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
@@ -353,8 +353,7 @@ export function ContactPage() {
                   type="submit"
                   disabled={isSubmitting}
                   size="lg"
-                  variant="outline"
-                  className={isSubmitting ? '' : 'text-black border-black hover:bg-black hover:text-white'}
+                  variant="primary"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
