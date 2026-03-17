@@ -446,21 +446,21 @@ const steps = [
 
 const testimonials = [
   {
-    name: 'Chidi N.',
+    name: 'Aisha O.',
     title: 'Individual, Abuja',
-    image: new URL('../assets/ChidiN.jpeg', import.meta.url).href,
+    image: new URL('../assets/Client1.jpeg', import.meta.url).href,
     quote: 'As an individual overwhelmed by legal issues, Legal Access connected me to a compassionate and knowledgeable lawyer who guided me every step of the way.',
   },
   {
-    name: 'Aisha O.',
+    name: 'Chidi N.',
     title: 'Small Business Owner, Lagos',
-    image: new URL('../assets/AishaO.jpeg', import.meta.url).href,
+    image: new URL('../assets/Business Owner.jpeg', import.meta.url).href,
     quote: 'Legal Access simplified our company registration process immediately. The user was professional, and affordable. Great service!',
   },
   {
     name: 'Tunde K.',
     title: 'Law Student, Ibadan',
-    image: new URL('../assets/TundeK.jpeg', import.meta.url).href,
+    image: new URL('../assets/Client2.jpeg', import.meta.url).href,
     quote: 'As a law student, finding practical support was a challenge until I discovered Legal Access. My grades have improved, and I feel much more confident.',
   },
 ];

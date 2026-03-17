@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { LinkButton } from '../components/Button';
-import { Shield, User, BookOpen } from 'lucide-react';
+import { Shield, User, BookOpen, Target, Eye } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,28 +54,54 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-50">
       {/* Hero / Narrative Section */}
-      <Section className="bg-gradient-to-r from-primary-darker via-primary-dark to-primary text-white py-20 md:py-32">
+      <Section className="bg-primary-darker text-white py-24 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Democratizing Access to Justice
-          </h1>
-          <div className="space-y-6 max-w-4xl">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+              Democratizing Access to Justice
+            </h1>
+            <p className="text-xl text-blue-100/80 max-w-2xl mx-auto">
+              Empowering Nigerians with transparent, efficient, and equitable legal solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-3xl p-10 shadow-xl flex flex-col items-start border-t-8 border-primary"
+            >
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                <Target size={28} className="text-primary" />
+              </div>
+              <h2 className="text-3xl font-extrabold text-primary mb-4">Our Mission</h2>
+              <p className="text-lg text-slate-700 leading-relaxed font-medium">
                 To democratize access to justice in Nigeria by leveraging technology to seamlessly connect individuals and businesses with qualified legal professionals, fostering a transparent, efficient, and equitable legal ecosystem.
               </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+            </motion.div>
+
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white rounded-3xl p-10 shadow-xl flex flex-col items-start border-t-8 border-primary"
+            >
+              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                <Eye size={28} className="text-primary" />
+              </div>
+              <h2 className="text-3xl font-extrabold text-primary mb-4">Our Vision</h2>
+              <p className="text-lg text-slate-700 leading-relaxed font-medium">
                 To be the leading and most trusted digital gateway for legal services in Nigeria, empowering every Nigerian to confidently navigate legal challenges and promoting a just and informed society.
               </p>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </Section>

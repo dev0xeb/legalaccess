@@ -1,5 +1,6 @@
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import TikTokLogo from '../assets/streamline-logos--tiktok-logo.svg';
+import MainLogo from '../assets/Main_Logo-removebg-preview.png';
 
 import { motion } from 'framer-motion';
 
@@ -103,7 +104,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="font-bold text-lg">Lex Access</span>
+              <img src={MainLogo} alt="Legal Access Logo" className="h-15 w-15 object-contain" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Lex Access is your digital gateway to simplified legal solutions and expert guidance. We connect individuals, businesses, and law students with verified professionals and essential resources.

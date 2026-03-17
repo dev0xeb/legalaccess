@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import MainLogo from '../assets/Main_Logo-removebg-preview.png';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ export function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1">
-            <span className="text-2xl font-extrabold text-primary-darker tracking-tight">Lex Access</span>
+            <img src={MainLogo} alt="Legal Access Logo" className="h-40 w-40 object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
