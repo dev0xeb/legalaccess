@@ -17,7 +17,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1">
+          <Link to="/" className="flex items-center gap-2 focus:outline-none focus:ring-0">
             <img src={MainLogo} alt="Legal Access Logo" className="h-40 w-40 object-contain" />
           </Link>
 
@@ -28,7 +28,7 @@ export function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary font-medium focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1"
+                  className="text-gray-700 hover:text-primary font-medium focus:outline-none focus:ring-0"
                 >
                   {item.label}
                 </a>
@@ -36,7 +36,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className="text-gray-700 hover:text-primary font-medium focus:outline-none focus:ring-2 focus:ring-primary rounded px-2 py-1"
+                  className="text-gray-700 hover:text-primary font-medium focus:outline-none focus:ring-0"
                 >
                   {item.label}
                 </Link>

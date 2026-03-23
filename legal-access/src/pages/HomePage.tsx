@@ -37,10 +37,10 @@ export function HomePage() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative h-96 md:h-full rounded-3xl overflow-hidden"
+            className="relative aspect-square w-full max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl"
           >
             <img
-              src={new URL('../assets/Hero.png', import.meta.url).href}
+              src={new URL("../assets/AbstractHero.png", import.meta.url).href}
               alt="Legal Services Platform"
               className="w-full h-full object-cover"
             />
@@ -367,7 +367,7 @@ const services = [
   {
     title: 'Individuals',
     description: 'Practical, affordable legal help for everyday matters and disputes. Includes contract reviews, dispute resolution, and family & personal law.',
-    image: new URL('../assets/LegalExpert.jpeg', import.meta.url).href,
+    image: new URL('../assets/download.jpg', import.meta.url).href,
     backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals.',
     buttonText: 'Join as Client',
     buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
@@ -375,7 +375,7 @@ const services = [
   {
     title: 'SMEs & Businesses',
     description: 'Subscription-based legal support for growing enterprises and entrepreneurs. Includes business registration, compliance, and ongoing legal protection.',
-    image: new URL('../assets/Arbitration.jpeg', import.meta.url).href,
+    image: new URL('../assets/Exploring Vista Law_ Legal Services And Resources In Vista CA.jpg', import.meta.url).href,
     backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for growing businesses.',
     buttonText: 'Join as Business',
     buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
