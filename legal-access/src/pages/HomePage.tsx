@@ -21,10 +21,10 @@ export function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeInUp}>
             <h1 className="mb-6 leading-tight text-primary-darker">
-              Justice Simplified. Access Unlocked.
+              Law Made Easy. Access Made Possible.
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed text-gray-700">
-              Your trusted digital gateway to legal expertise, protection, and education in Nigeria.
+              Your trusted digital gateway to legal expertise, protection, and education in Nigeria and across Africa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#services" className="inline-block px-8 py-4 text-lg font-bold rounded-full transition-all bg-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5">
@@ -48,20 +48,56 @@ export function HomePage() {
         </div>
       </Section>
 
-      {/* Problem Section */}
+      {/* Who We Are Section */}
+      <Section className="bg-white text-gray-800">
+        <motion.div
+          {...fadeInUp}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-darker">
+            Who We Are
+          </h2>
+          <p className="text-xl md:text-2xl mb-8 leading-relaxed text-gray-700">
+            Legal Access is a legal-tech company dedicated to revolutionizing the legal landscape in Nigeria and across Africa. We serve as a resource center for end-to-end legal solutions, supporting individuals, SMEs, and students at every stage. We are building a lifelong ecosystem for practitioners, guiding them from their first day as law students to their established careers as lawyers.
+          </p>
+          <div className="mt-12 bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+             <h3 className="text-2xl font-bold text-primary mb-4">Our Vision</h3>
+             <p className="text-lg text-gray-600 italic">
+                {/* User placeholder for vision */}
+                "To build the most accessible, future-proof legal ecosystem that empowers individuals and scales businesses."
+             </p>
+          </div>
+        </motion.div>
+      </Section>
+
+      {/* What We Do Section */}
       <Section className="bg-primary-darker text-white">
         <motion.div
           {...fadeInUp}
-          className="max-w-3xl text-center"
+          className="max-w-4xl mx-auto text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Are Legal Challenges Holding You Back?
+            What We Do
           </h2>
           <p className="text-xl text-gray-100 mb-8 leading-relaxed">
-            Struggling with overwhelming legal costs, confusing terms, or the search for a trustworthy lawyer?
-            Discover Legal Access, your simplified path to clear, affordable, and reliable legal assistance.
+            We turn complex legal hurdles into structured, affordable, and actionable solutions. 
+            Our tech-driven approach offers 24/7 support, bridging the gap between traditional law and the digital age.
           </p>
         </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
+           <motion.div {...fadeInUp} className="bg-primary p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-primary-light transition-colors">
+             <h3 className="text-2xl font-bold mb-4 text-white">For Clients</h3>
+             <p className="text-gray-200 text-lg leading-relaxed">
+               We guide you through legal planning, execution, and risk management with clarity and confidence.
+             </p>
+           </motion.div>
+           <motion.div {...fadeInUp} className="bg-primary p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-primary-light transition-colors">
+             <h3 className="text-2xl font-bold mb-4 text-white">For Professionals</h3>
+             <p className="text-gray-200 text-lg leading-relaxed">
+               We bridge the divide by connecting law students to elite mentors, domestic internships, and exclusive international opportunities.
+             </p>
+           </motion.div>
+        </div>
       </Section>
 
       {/* Our Services Section */}
@@ -126,10 +162,13 @@ export function HomePage() {
       <Section className="bg-gradient-to-b from-gray-50 to-white">
         <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="mb-4 text-primary-darker">
-            Why Choose Lex Access?
+            Why Legal Access?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover what makes us the trusted choice for legal solutions in Nigeria
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
+            We don’t just advise: we predict, protect, manage, and scale.
+          </p>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
+            From startups to conglomerates, and law students to seasoned partners, we deliver tech-driven legal solutions that work in the real world.
           </p>
         </motion.div>
 
@@ -365,44 +404,28 @@ export function HomePage() {
 
 const services = [
   {
-    title: 'Individuals',
-    description: 'Practical, affordable legal help for everyday matters and disputes. Includes contract reviews, dispute resolution, and family & personal law.',
-    image: new URL('../assets/download.jpg', import.meta.url).href,
-    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for individuals.',
-    buttonText: 'Join as Client',
-    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
-  },
-  {
-    title: 'SMEs & Businesses',
-    description: 'Subscription-based legal support for growing enterprises and entrepreneurs. Includes business registration, compliance, and ongoing legal protection.',
+    title: 'Legal Consulting & Retainers',
+    description: 'The SME Play: Business registration, tax compliance, contract drafting, predictive audits, and round-the-clock support.',
     image: new URL('../assets/Exploring Vista Law_ Legal Services And Resources In Vista CA.jpg', import.meta.url).href,
-    backText: 'Get comprehensive legal support with verified professionals. Access affordable protection plans tailored for growing businesses.',
-    buttonText: 'Join as Business',
-    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
+    backText: 'Comprehensive legal setup, tax compliance, SOP implementation, and strategic business support tailored for SMEs.',
+    buttonText: 'View Packages',
+    buttonLink: '/packages',
   },
   {
-    title: 'Law Students',
-    description: 'Bar exam prep, tutoring, and practical training from experienced legal minds.',
+    title: 'Bridging the Gap',
+    description: 'Lawyers to Clients: Verified professional matching, litigation advisory, and escrow-protected financial settlements.',
+    image: new URL('../assets/download.jpg', import.meta.url).href,
+    backText: 'Connect securely with certified legal professionals. Secure escrow-protected financial settlements and top-tier litigation advisory.',
+    buttonText: 'View Packages',
+    buttonLink: '/packages',
+  },
+  {
+    title: 'Curve Mastery',
+    description: 'Tutor to Student: Academic coaching, mentorship, career placement, and professional bar exam readiness.',
     image: new URL('../assets/Tutor.jpeg', import.meta.url).href,
-    backText: 'As a Student: Master legal concepts with personalized guidance. Bridge the gap between theory and practice with expert tutors for academic excellence and bar exam success.',
-    // "As a Student" prefix to match "Side B" request? Prompt said Side B: "As a Student". Side A "As a Tutor".
-    // I will adjust the Title/Description for "As a Tutor" logic?
-    // Prompt: Side A: "As a Tutor". Side B: "As a Student".
-    // But the card title is "Law Students" or "Law Tutor Services"?
-    // The prompt says "Law Students... Bar exam prep...".
-    // Maybe the Front should say "As a Tutor" or "For Students"?
-    // "Side A (Front): 'As a Tutor' (Content focused on guidance)."
-    // "Side B (Back): 'As a Student' (Content focused on learning/outcomes)."
-    // My current card Title is "Law Students".
-    // I will try to match the prompt closely.
-    // Front: Title "Law Students", Desc "Bar exam prep...".
-    // Back: "As a Student..."
-    // But where does "As a Tutor" go? Maybe that's for the PRO lesson?
-    // Prompt: "Legal Services Flip-Cards: For the legal services section... Side A... Side B..."
-    // Maybe this applies to ALL cards? "As a Tutor"/"As a Student" sounds specific to the education card.
-    // I will put "As a Student" content on the back of the student card.
-    buttonText: 'Join as Student',
-    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfIiPrZ0ZNKnjLpgsotUEeKKPwEJmXp4fLEsQdvLUPAM62oLw/viewform',
+    backText: 'Structured mastery and round-the-clock support for law faculty students and exam prep, with career placement matches.',
+    buttonText: 'View Packages',
+    buttonLink: '/packages',
   },
 ];
 

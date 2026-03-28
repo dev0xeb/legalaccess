@@ -4,3 +4,4 @@ export { AboutPage } from './AboutPage';
 export { ContactPage } from './ContactPage';
 export { FormPage } from './FormPage';
 export { PackagesPage } from './PackagesPage';
+export { HowItWorksPage } from './HowItWorksPage';

@@ -80,8 +80,11 @@ export function ContactPage() {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Get In Touch
           </h1>
-          <p className="text-lg md:text-xl text-white text-opacity-95 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-white text-opacity-95 max-w-2xl leading-relaxed mb-4">
             We're here to help. Reach out to us using any of the methods below, and we'll get back to you as soon as possible.
+          </p>
+          <p className="text-xl md:text-2xl text-accent-green italic font-medium">
+            Let's build something future-proof.
           </p>
         </motion.div>
       </Section>

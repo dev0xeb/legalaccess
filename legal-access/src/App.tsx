@@ -8,6 +8,7 @@ import {
   ContactPage,
   FormPage,
   PackagesPage,
+  HowItWorksPage,
 } from './pages';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/form/:category" element={<FormPage />} />
               <Route path="/packages" element={<PackagesPage />} />
+              <Route path="/how-it-works" element={<HowItWorksPage />} />
               <Route
                 path="*"
                 element={

@@ -2,99 +2,48 @@ import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import TikTokLogo from '../assets/streamline-logos--tiktok-logo.svg';
 import MainLogo from '../assets/Main_Logo-removebg-preview.png';
 
-import { motion } from 'framer-motion';
-
 export function Footer() {
   return (
     <footer id="footer" className="bg-neutral-dark text-white">
       {/* Newsletter Section */}
-      <div className="relative overflow-hidden py-20 bg-primary-darker">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Heading */}
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 text-white"
-          >
-            Stop Guessing. Start Protecting.
-          </motion.h3>
+      <div className="py-16 bg-white/5 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left side text */}
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Newsletter
+              </h3>
+              <p className="text-lg text-gray-300 leading-relaxed max-w-md">
+                Subscribe to our newsletter and get our monthly perspective on happenings in the legal practitioners sphere.
+              </p>
+            </div>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-white mb-8 leading-relaxed"
-          >
-            Most legal advice is buried in 50-page documents. We translate the complex stuff into one 3-minute email every Tuesday. No billable hours, no "legalese," just the answers you actually need.
-          </motion.p>
-
-          {/* Three Benefit Cards */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
-          >
-            {/* Card 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
-            >
-              <h4 className="text-white font-bold text-lg mb-2">Avoid Costly Mistakes</h4>
-              <p className="text-white/80 text-sm">Learn the red flags in contracts before you sign them.</p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
-            >
-              <h4 className="text-white font-bold text-lg mb-2">Legal DIY</h4>
-              <p className="text-white/80 text-sm">Step-by-step guides for filing your own trademarks or NDAs.</p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all"
-            >
-              <h4 className="text-white font-bold text-lg mb-2">Vetted Experts</h4>
-              <p className="text-white/80 text-sm">Access to a network of lawyers who won't charge you "big firm" prices.</p>
-            </motion.div>
-          </motion.div>
-
-          {/* Subscription Form / Sign Up Options */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 max-w-lg"
-          >
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-accent-yellow to-accent-orange text-white font-bold rounded-full flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              Sign up as Client
-            </a>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-primary text-white font-bold rounded-full flex items-center justify-center gap-2 hover:bg-primary-dark transition-all hover:scale-105 shadow-lg border border-white/20"
-            >
-              Sign up as Lawyer
-            </a>
-          </motion.div>
+            {/* Right side form */}
+            <div className="w-full xl:pl-16">
+              <form className="flex flex-col sm:flex-row gap-4 w-full" onSubmit={(e) => e.preventDefault()}>
+                <div className="flex-1">
+                  <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+                  <input
+                    id="newsletter-email"
+                    type="email"
+                    placeholder="Enter your email address..."
+                    className="w-full px-6 py-4 bg-gray-800/50 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary placeholder:text-gray-500 transition-all border border-gray-700 focus:border-primary"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-light transition-all whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <p className="text-gray-500 text-sm mt-4 text-center sm:text-left">
+                We care about your data. Unsubscribe at any time.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
