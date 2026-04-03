@@ -2,7 +2,7 @@
 import { whatsappIcon } from '../assets/icons/icons';
 
 export function WhatsAppWidget() {
-  const whatsappNumber = '+234905975147';
+  const whatsappNumber = '+2348052829096';
   const message = 'Hello! I\'m interested in Legal Access services.';
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 

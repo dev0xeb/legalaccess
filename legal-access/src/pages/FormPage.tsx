@@ -127,7 +127,7 @@ export function FormPage() {
                 type="tel"
                 id="phone"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="+234 (0)1234567890"
+                placeholder="+234 (0) 805 282 9096"
               />
               {errors.phone && (
                 <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>

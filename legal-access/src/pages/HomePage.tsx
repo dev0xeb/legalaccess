@@ -40,7 +40,7 @@ export function HomePage() {
             className="relative aspect-square w-full max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl"
           >
             <img
-              src={new URL("../assets/AbstractHero.png", import.meta.url).href}
+              src={new URL("../assets/HeroReplacement.png", import.meta.url).href}
               alt="Legal Services Platform"
               className="w-full h-full object-cover"
             />
@@ -284,18 +284,14 @@ export function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://forms.google.com/pro-bono-community-justice"
+                href="/pro-bono"
                 className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Find a Pro Bono Lawyer
               </a>
               <a
-                href="https://forms.google.com/pro-bono-community-justice"
+                href="/pro-bono"
                 className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-all shadow-md hover:shadow-lg"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Volunteer as a Lawyer
               </a>
@@ -469,14 +465,14 @@ const steps = [
 
 const testimonials = [
   {
-    name: 'Aisha O.',
-    title: 'Individual, Abuja',
+    name: 'Temitope Etim',
+    title: 'Client, Abuja',
     image: new URL('../assets/Client1.jpeg', import.meta.url).href,
     quote: 'As an individual overwhelmed by legal issues, Legal Access connected me to a compassionate and knowledgeable lawyer who guided me every step of the way.',
   },
   {
-    name: 'Chidi N.',
-    title: 'Small Business Owner, Lagos',
+    name: 'Moyin',
+    title: 'Client, Lagos',
     image: new URL('../assets/Business Owner.jpeg', import.meta.url).href,
     quote: 'Legal Access simplified our company registration process immediately. The user was professional, and affordable. Great service!',
   },

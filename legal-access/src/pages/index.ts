@@ -5,3 +5,4 @@ export { ContactPage } from './ContactPage';
 export { FormPage } from './FormPage';
 export { PackagesPage } from './PackagesPage';
 export { HowItWorksPage } from './HowItWorksPage';
+export { ComingSoonPage } from './ComingSoonPage';

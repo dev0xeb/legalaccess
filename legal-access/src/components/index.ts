@@ -7,3 +7,4 @@ export { Section } from './Section';
 export { CategoryModal } from './CategoryModal';
 export { ArbitrationModal } from './ArbitrationModal';
 export { WhatsAppWidget } from './WhatsAppWidget';
+export { ScrollToTop } from './ScrollToTop';

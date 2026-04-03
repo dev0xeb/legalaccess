@@ -6,7 +6,8 @@ import { mailIcon, phoneIcon, whatsappIcon } from '../assets/icons/icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -40,6 +41,12 @@ const itemVariants = {
 
 export function ContactPage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
+  }, []);
 
   const {
     register,
@@ -52,19 +59,34 @@ export function ContactPage() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log('Contact form submitted:', data);
+      setSubmitError(null);
+
+      const templateParams = {
+        to_email: 'info@legalaccess.com',
+        from_name: data.fullName,
+        from_email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
+        templateParams
+      );
+
       setSubmitSuccess(true);
       reset();
       // Reset success state after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
-    } catch {
-      alert('An error occurred. Please try again.');
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitError('Failed to send message. Please try again or contact us directly.');
     }
   };
 
-  const whatsappNumber = '+234905975147';
+  const whatsappNumber = '+2348052829096';
   const whatsappMessage = 'Hello! I need assistance with Legal Access services.';
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -135,10 +157,10 @@ export function ContactPage() {
             </motion.div>
             <h3 className="text-xl font-bold text-primary-darker mb-4">Phone</h3>
             <a
-              href="tel:+234905975147"
+              href="tel:+2348052829096"
               className="text-gray-700 hover:text-primary transition-colors font-medium"
             >
-              +234 (0) 905 975 1474
+              +234 (0) 805 282 9096
             </a>
           </motion.div>
 
@@ -251,6 +273,45 @@ export function ContactPage() {
                 Send Another Message
               </motion.button>
             </motion.div>
+          ) : submitError ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white rounded-2xl shadow-lg p-12 text-center border-2 border-red-500"
+            >
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl">
+                  ⚠️
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-red-600 mb-3">
+                Error Sending Message
+              </h3>
+              <p className="text-gray-700 mb-6">
+                {submitError}
+              </p>
+              <div className="space-y-3">
+                <p className="text-sm text-gray-600">
+                  Please try again or contact us directly:
+                </p>
+                <a
+                  href="mailto:info@legalaccess.com"
+                  className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-full hover:bg-primary-dark transition-all"
+                >
+                  Email Us
+                </a>
+              </div>
+              <motion.button
+                onClick={() => {
+                  setSubmitError(null);
+                  reset();
+                }}
+                className="mt-4 px-6 py-2 text-primary font-medium hover:text-primary-dark transition-all"
+              >
+                Try Again
+              </motion.button>
+            </motion.div>
           ) : (
             <motion.form
               onSubmit={handleSubmit(onSubmit)}
@@ -304,7 +365,7 @@ export function ContactPage() {
                   type="tel"
                   id="phone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="+234 (0)1234567890"
+                  placeholder="+234 (0) 805 282 9096"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-2">{errors.phone.message}</p>

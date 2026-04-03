@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Footer, CategoryModal, ArbitrationModal, WhatsAppWidget } from './components';
+import { Header, Footer, CategoryModal, ArbitrationModal, WhatsAppWidget, ScrollToTop } from './components';
 import { ModalProvider } from './context/ModalContext';
 import {
   HomePage,
@@ -9,12 +9,14 @@ import {
   FormPage,
   PackagesPage,
   HowItWorksPage,
+  ComingSoonPage,
 } from './pages';
 
 function App() {
   return (
     <ModalProvider>
       <Router>
+        <ScrollToTop />
         <CategoryModal />
         <ArbitrationModal />
         <WhatsAppWidget />
@@ -29,6 +31,7 @@ function App() {
               <Route path="/form/:category" element={<FormPage />} />
               <Route path="/packages" element={<PackagesPage />} />
               <Route path="/how-it-works" element={<HowItWorksPage />} />
+              <Route path="/pro-bono" element={<ComingSoonPage />} />
               <Route
                 path="*"
                 element={

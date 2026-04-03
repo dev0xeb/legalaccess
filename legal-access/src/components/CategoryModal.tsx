@@ -55,15 +55,23 @@ export function CategoryModal() {
           onClick={handleClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl relative"
-            onClick={(e) => e.stopPropagation()}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          className="bg-white rounded-3xl p-10 w-full max-w-md shadow-2xl relative"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className="absolute top-6 right-6 text-gray-500 hover:text-primary-darker hover:bg-gray-100 p-2 rounded-full transition-colors z-50"
+            aria-label="Close modal"
           >
+            <X className="w-6 h-6" />
+          </button>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mt-4">
               {(selectedCategories && selectedCategories.length > 0
                 ? categories.filter((c) => selectedCategories.includes(c.title))
                 : categories
@@ -87,16 +95,6 @@ export function CategoryModal() {
               ))}
             </div>
           </motion.div>
-
-          {/* Close button placed at overlay level so it remains visible during inner animations */}
-          <button
-            onClick={handleClose}
-            className="absolute top-5 right-5 text-gray-500 hover:text-primary-darker hover:bg-white/20 p-2 rounded-full transition-colors"
-            aria-label="Close modal"
-            style={{ zIndex: 9999 }}
-          >
-            <X className="w-8 h-8" />
-          </button>
         </motion.div>
       )}
     </AnimatePresence>

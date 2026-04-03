@@ -1,5 +1,4 @@
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
-import TikTokLogo from '../assets/streamline-logos--tiktok-logo.svg';
 import MainLogo from '../assets/Main_Logo-removebg-preview.png';
 
 export function Footer() {
@@ -65,9 +64,9 @@ export function Footer() {
             <h4 className="font-bold mb-4">Follow Us</h4>
             <ul className="space-y-2">
               <li><a href="https://www.linkedin.com/company/legal-access-hq/" className="text-gray-300 hover:text-white text-sm">LinkedIn</a></li>
-              <li><a href="https://x.com/legalaccess_hq?s=21" className="text-gray-300 hover:text-white text-sm">Twitter</a></li>
-              <li><a href="https://www.tiktok.com/@legalaccess_hq?_t=ZM-8y6Fyo7Kunt&_r=1" className="text-gray-300 hover:text-white text-sm">TikTok</a></li>
-              <li><a href="https://www.instagram.com/legalaccess_hq/?igsh=MW5wazd5Y2h0MzI4Mg%3D%3D&utm_source=qr#" className="text-gray-300 hover:text-white text-sm">Instagram</a></li>
+              <li><a href="https://x.com/Legalaccess_HQ" className="text-gray-300 hover:text-white text-sm">Twitter</a></li>
+              <li><a href="https://vm.tiktok.com/ZS9ew6sbQqsak-XOmrS/" className="text-gray-300 hover:text-white text-sm">TikTok</a></li>
+              <li><a href="https://www.instagram.com/lex_access?igsh=MXh0dGdnc3gyNnh2cA==" className="text-gray-300 hover:text-white text-sm">Instagram</a></li>
             </ul>
           </div>
 
@@ -79,7 +78,7 @@ export function Footer() {
                 Email: <a href="mailto:info@legalaccess.com" className="text-gray-300 hover:text-white">info@legalaccess.com</a>
               </p>
               <p className="text-gray-300">
-                Phone: <span className="text-gray-300">+234 905 975 1474</span>
+                Phone: <span className="text-gray-300">+234 805 282 9096</span>
               </p>
               <p className="text-gray-300">
                 Address: <span className="text-gray-300">Lagos, Nigeria</span>
@@ -97,13 +96,26 @@ export function Footer() {
             <a href="https://www.linkedin.com/company/legal-access-hq/" className="text-gray-400 hover:text-white" aria-label="LinkedIn">
               <Linkedin size={20} />
             </a>
-            <a href="https://x.com/legalaccess_hq?s=21" className="text-gray-400 hover:text-white" aria-label="Twitter">
+            <a href="https://x.com/Legalaccess_HQ" className="text-gray-400 hover:text-white" aria-label="Twitter">
               <Twitter size={20} />
             </a>
-            <a href="https://www.tiktok.com/@legalaccess_hq?_t=ZM-8y6Fyo7Kunt&_r=1" className="inline-flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
-              <img src={TikTokLogo} alt="TikTok" className="w-5 h-5 grayscale opacity-70 group-hover:grayscale-0" />
+            <a href="https://vm.tiktok.com/ZS9ew6sbQqsak-XOmrS/" className="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="transition-colors"
+              >
+                <path d="M16 1.5h-3.5V16c0 1.5-1.5 3-3 3s-3-.5-3-3c0-2 1.899-3.339 3.5-3V9.5c-6.12 0-7 5-7 6.5s.977 6.5 6.5 6.5c4.522 0 6.5-3.5 6.5-6v-8c1.146 1.018 2.922 1.357 5 1.5V6.5c-3.017 0-5-2.654-5-5Z" />
+              </svg>
             </a>
-            <a href="https://www.instagram.com/legalaccess_hq/?igsh=MW5wazd5Y2h0MzI4Mg%3D%3D&utm_source=qr#" className="text-gray-400 hover:text-white" aria-label="Instagram">
+            <a href="https://www.instagram.com/lex_access?igsh=MXh0dGdnc3gyNnh2cA==" className="text-gray-400 hover:text-white" aria-label="Instagram">
               <Instagram size={20} />
             </a>
           </div>
