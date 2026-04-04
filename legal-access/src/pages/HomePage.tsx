@@ -281,7 +281,7 @@ export function HomePage() {
               Pro Bono & Community Justice
             </h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Lex Access is committed to social impact. We bridge the gap for those in underserved communities by connecting them with dedicated legal professionals willing to offer their expertise for the public good. Justice shouldn't be a luxury.
+              Legal Access is committed to social impact. We bridge the gap for those in underserved communities by connecting them with dedicated legal professionals willing to offer their expertise for the public good. Justice shouldn't be a luxury.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

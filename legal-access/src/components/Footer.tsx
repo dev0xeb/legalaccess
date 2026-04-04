@@ -107,7 +107,7 @@ export function Footer() {
               <img src={MainLogo} alt="Legal Access Logo" className="h-15 w-15 object-contain" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Lex Access is your digital gateway to simplified legal solutions and expert guidance. We connect individuals, businesses, and law students with verified professionals and essential resources.
+              Legal Access is your digital gateway to simplified legal solutions and expert guidance. We connect individuals, businesses, and law students with verified professionals and essential resources.
             </p>
           </div>
 

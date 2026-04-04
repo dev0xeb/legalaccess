@@ -224,7 +224,7 @@ export function AboutPage() {
             ))}
           </div>
           <p className="text-center text-xl text-primary-dark mt-12 font-semibold italic">
-            …and lots more. Lex Access is there for you.
+            …and lots more. Legal Access is there for you.
           </p>
         </div>
       </Section>
