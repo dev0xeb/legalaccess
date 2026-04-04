@@ -5,6 +5,8 @@ import { Button } from '../components/Button';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -39,6 +41,11 @@ const categoryDescriptions: Record<string, string> = {
 export function FormPage() {
   const { category = 'individuals-businesses' } = useParams<{ category: string }>();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
+  }, []);
   const {
     register,
     handleSubmit,
@@ -50,12 +57,28 @@ export function FormPage() {
 
   const onSubmit = async (data: FormData) => {
     try {
+      const templateParams = {
+        to_email: 'legalaccesshq@gmail.com',
+        from_name: data.fullName,
+        from_email: data.email,
+        phone: data.phone,
+        subject: `${categoryTitles[category] || 'New Application'} - ${data.subject}`,
+        message: data.message,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
+        templateParams
+      );
+
       console.log('Form submitted:', { category, ...data });
-      alert('Thank you! We will contact you soon.');
+      alert("Thank you! We've received your request and will contact you soon.");
       reset();
       navigate('/');
-    } catch {
-      alert('An error occurred. Please try again.');
+    } catch (error) {
+      console.error('Email send error:', error);
+      alert('An error occurred while sending your request. Please try again or contact us directly.');
     }
   };
 

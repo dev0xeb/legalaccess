@@ -1,7 +1,45 @@
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import MainLogo from '../assets/Main_Logo-removebg-preview.png';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
+  }, []);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const templateParams = {
+        to_email: 'legalaccesshq@gmail.com',
+        from_email: email,
+        subject: 'New Newsletter Subscription',
+        message: `New newsletter subscription request from: ${email}`,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
+        templateParams
+      );
+
+      setStatus('success');
+      setEmail('');
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Newsletter error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
+
   return (
     <footer id="footer" className="bg-neutral-dark text-white">
       {/* Newsletter Section */}
@@ -20,24 +58,38 @@ export function Footer() {
 
             {/* Right side form */}
             <div className="w-full xl:pl-16">
-              <form className="flex flex-col sm:flex-row gap-4 w-full" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex flex-col sm:flex-row gap-4 w-full" onSubmit={handleNewsletterSubmit}>
                 <div className="flex-1">
                   <label htmlFor="newsletter-email" className="sr-only">Email address</label>
                   <input
                     id="newsletter-email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
                     className="w-full px-6 py-4 bg-gray-800/50 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary placeholder:text-gray-500 transition-all border border-gray-700 focus:border-primary"
                     required
+                    disabled={status === 'loading'}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-light transition-all whitespace-nowrap"
+                  disabled={status === 'loading'}
+                  className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-light transition-all whitespace-nowrap disabled:opacity-50"
                 >
-                  Subscribe
+                  {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </form>
+              {status === 'success' && (
+                <p className="text-accent-green text-sm mt-4 text-center sm:text-left">
+                  Thank you for subscribing!
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-500 text-sm mt-4 text-center sm:text-left">
+                  An error occurred. Please try again.
+                </p>
+              )}
               <p className="text-gray-500 text-sm mt-4 text-center sm:text-left">
                 We care about your data. Unsubscribe at any time.
               </p>
@@ -75,7 +127,7 @@ export function Footer() {
             <h4 className="font-bold mb-4">Contact</h4>
             <div className="space-y-3 text-sm">
               <p className="text-gray-300">
-                Email: <a href="mailto:info@legalaccess.com" className="text-gray-300 hover:text-white">info@legalaccess.com</a>
+                Email: <a href="mailto:legalaccesshq@gmail.com" className="text-gray-300 hover:text-white">legalaccesshq@gmail.com</a>
               </p>
               <p className="text-gray-300">
                 Phone: <span className="text-gray-300">+234 805 282 9096</span>

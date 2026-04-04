@@ -62,7 +62,7 @@ export function ContactPage() {
       setSubmitError(null);
 
       const templateParams = {
-        to_email: 'info@legalaccess.com',
+        to_email: 'legalaccesshq@gmail.com',
         from_name: data.fullName,
         from_email: data.email,
         phone: data.phone,
@@ -135,10 +135,10 @@ export function ContactPage() {
             </motion.div>
             <h3 className="text-xl font-bold text-primary-darker mb-4">Email</h3>
             <a
-              href="mailto:info@legalaccess.com"
+              href="mailto:legalaccesshq@gmail.com"
               className="text-gray-700 hover:text-primary transition-colors font-medium"
             >
-              info@legalaccess.com
+              legalaccesshq@gmail.com
             </a>
           </motion.div>
 
@@ -198,14 +198,14 @@ export function ContactPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="bg-gradient-to-br from-primary-light/10 to-primary/5 rounded-2xl p-8 md:p-12 mb-16 border border-primary-light/20"
         >
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 transition-all duration-500">
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <MapPin className="text-primary flex-shrink-0" size={32} />
             </motion.div>
-            <div className="flex-1">
+            <div className="flex-1 w-full text-center md:text-left">
               <h3 className="text-2xl font-bold text-primary-darker mb-4">
                 Office Address
               </h3>
@@ -213,7 +213,7 @@ export function ContactPage() {
                 <span className="font-semibold">Legal Access</span><br />
                 Lagos, Nigeria
               </p>
-              <div className="bg-white rounded-lg p-4 border border-gray-100">
+              <div className="bg-white rounded-lg p-4 border border-gray-100 mt-4 max-w-sm mx-auto md:mx-0 text-left">
                 <p className="font-semibold text-primary-dark mb-3">Business Hours:</p>
                 <ul className="space-y-2 text-gray-700">
                   <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
@@ -296,7 +296,7 @@ export function ContactPage() {
                   Please try again or contact us directly:
                 </p>
                 <a
-                  href="mailto:info@legalaccess.com"
+                  href="mailto:legalaccesshq@gmail.com"
                   className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-full hover:bg-primary-dark transition-all"
                 >
                   Email Us

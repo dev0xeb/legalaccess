@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { ServiceCard } from '../components/ServiceCard';
 import { TestimonialCard } from '../components/TestimonialCard';
@@ -274,7 +275,7 @@ export function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 bg-accent-orange text-white text-sm font-bold rounded-full mb-4">
-              Community Impact
+              Coming Soon
             </span>
             <h2 className="mb-6 leading-tight">
               Pro Bono & Community Justice
@@ -283,18 +284,18 @@ export function HomePage() {
               Lex Access is committed to social impact. We bridge the gap for those in underserved communities by connecting them with dedicated legal professionals willing to offer their expertise for the public good. Justice shouldn't be a luxury.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/pro-bono"
+              <Link
+                to="/pro-bono"
                 className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-colors"
               >
                 Find a Pro Bono Lawyer
-              </a>
-              <a
-                href="/pro-bono"
+              </Link>
+              <Link
+                to="/pro-bono"
                 className="px-8 py-3 bg-primary text-white font-bold rounded-lg text-center hover:bg-primary-dark transition-all shadow-md hover:shadow-lg"
               >
                 Volunteer as a Lawyer
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -478,8 +479,8 @@ const testimonials = [
   },
   {
     name: 'Tunde K.',
-    title: 'Law Student, Ibadan',
+    title: 'Lawyer, Ibadan',
     image: new URL('../assets/Client2.jpeg', import.meta.url).href,
-    quote: 'As a law student, finding practical support was a challenge until I discovered Legal Access. My grades have improved, and I feel much more confident.',
+    quote: 'As a lawyer, finding practical support was a challenge until I discovered Legal Access. My grades have improved, and I feel much more confident.',
   },
 ];
