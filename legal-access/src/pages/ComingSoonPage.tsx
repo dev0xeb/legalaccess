@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Section } from '../components/Section';
+import { Section, SEO } from '../components';
 import { Mail, Bell, Scale, Handshake, Sparkles, Rocket } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,6 +45,10 @@ export function ComingSoonPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Pro Bono | Access to Community Justice"
+        description="Legal Access is committed to social impact. Join our pro bono initiatives connecting underserved communities with legal professionals."
+      />
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-primary via-primary-darker to-primary-darker text-white py-32 relative overflow-hidden">
         {/* Decorative background elements */}

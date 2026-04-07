@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Section } from '../components/Section';
+import { Section, SEO } from '../components';
 import { LinkButton } from '../components/Button';
 import { Shield, User, BookOpen, Target, Eye } from 'lucide-react';
 
@@ -53,6 +53,10 @@ export function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-50">
+      <SEO 
+        title="About Us | Democratizing Access to Justice"
+        description="Learn about Legal Access's mission to bridge the gap between traditional law and the digital age in Nigeria and across Africa."
+      />
       {/* Hero / Narrative Section */}
       <Section className="bg-primary-darker text-white py-24 md:py-32">
         <motion.div

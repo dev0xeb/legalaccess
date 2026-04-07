@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { ServiceCard } from '../components/ServiceCard';
-import { TestimonialCard } from '../components/TestimonialCard';
-import { Section } from '../components/Section';
+import { Accessibility, Clock, Users } from 'lucide-react';
+import { Button, ServiceCard, TestimonialCard, Section, SEO } from '../components';
 import { useModal } from '../context/ModalContext';
 
 const fadeInUp = {
@@ -17,6 +15,10 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Law Made Easy. Access Made Possible."
+        description="Legal Access is Nigeria's leading legal-tech platform, providing end-to-end legal solutions, SME consulting, and academic tutoring for law students."
+      />
       {/* Hero Section */}
       <Section className="bg-gradient-to-r from-gray-50 to-white pt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -165,11 +167,27 @@ export function HomePage() {
           <h2 className="mb-4 text-primary-darker">
             Why Legal Access?
           </h2>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
-            We don’t just advise: we predict, protect, manage, and scale.
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-bold mb-8">
+            We are the legal tech support you did not know you needed.
           </p>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
-            From startups to conglomerates, and law students to seasoned partners, we deliver tech-driven legal solutions that work in the real world.
+          
+          <div className="flex flex-wrap justify-center gap-8 mb-10">
+            <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm border border-gray-100 transition-all hover:shadow-md">
+              <Accessibility className="text-primary h-6 w-6" />
+              <span className="font-bold text-gray-800">Accessibility</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm border border-gray-100 transition-all hover:shadow-md">
+              <Clock className="text-primary h-6 w-6" />
+              <span className="font-bold text-gray-800">Convenience</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm border border-gray-100 transition-all hover:shadow-md">
+              <Users className="text-primary h-6 w-6" />
+              <span className="font-bold text-gray-800">Network</span>
+            </div>
+          </div>
+
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            From startups to multinationals, law students to lawyers, we deliver tech-driven solutions in real time.
           </p>
         </motion.div>
 
@@ -409,7 +427,7 @@ const services = [
     buttonLink: '/packages',
   },
   {
-    title: 'Bridging the Gap',
+    title: 'CONNECT A LAWYER',
     description: 'Lawyers to Clients: Verified professional matching, litigation advisory, and escrow-protected financial settlements.',
     image: new URL('../assets/download.jpg', import.meta.url).href,
     backText: 'Connect securely with certified legal professionals. Secure escrow-protected financial settlements and top-tier litigation advisory.',
@@ -417,7 +435,7 @@ const services = [
     buttonLink: '/packages',
   },
   {
-    title: 'Curve Mastery',
+    title: 'LEGAL TUTORING',
     description: 'Tutor to Student: Academic coaching, mentorship, career placement, and professional bar exam readiness.',
     image: new URL('../assets/Tutor.jpeg', import.meta.url).href,
     backText: 'Structured mastery and round-the-clock support for law faculty students and exam prep, with career placement matches.',

@@ -8,3 +8,5 @@ export { CategoryModal } from './CategoryModal';
 export { ArbitrationModal } from './ArbitrationModal';
 export { WhatsAppWidget } from './WhatsAppWidget';
 export { ScrollToTop } from './ScrollToTop';
+export { CookieConsent } from './CookieConsent';
+export { SEO } from './SEO';

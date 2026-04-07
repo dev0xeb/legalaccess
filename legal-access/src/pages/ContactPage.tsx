@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Section } from '../components/Section';
+import { Section, SEO } from '../components';
 import { Button } from '../components/Button';
 import { MapPin, CheckCircle } from 'lucide-react';
 import { mailIcon, phoneIcon, whatsappIcon } from '../assets/icons/icons';
@@ -92,6 +92,10 @@ export function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Contact Us | Professional Legal Guidance"
+        description="Have a legal question or need professional advice? Contact the Legal Access team today for reliable and timely support."
+      />
       {/* Hero Section */}
       <Section className="bg-primary-darker text-white py-20 md:py-32">
         <motion.div

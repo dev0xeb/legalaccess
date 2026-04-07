@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
-import { Section } from '../components/Section';
+import { Section, SEO } from '../components';
 import { Shield, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
@@ -99,6 +99,10 @@ export function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Our Services | Comprehensive Legal Solutions"
+        description="Explore our range of tech-driven legal services for individuals, businesses, and law students in Nigeria and beyond."
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-darker via-primary-dark to-primary text-white py-20 md:py-32 min-h-80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

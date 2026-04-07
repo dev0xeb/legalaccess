@@ -1,4 +1,4 @@
-import { Section } from '../components/Section';
+import { Section, SEO } from '../components';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -19,7 +19,7 @@ export function PackagesPage() {
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
         },
         {
-            title: "Bridging the Gap",
+            title: "CONNECT A LAWYER",
             subtitle: "Lawyers to Clients",
             features: [
                 "Verified professional matching",
@@ -30,7 +30,7 @@ export function PackagesPage() {
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
         },
         {
-            title: "Curve Mastery",
+            title: "LEGAL TUTORING",
             subtitle: "Tutor to Student",
             features: [
                 "Academic coaching for Law Faculty and Law School students",
@@ -44,6 +44,10 @@ export function PackagesPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
+            <SEO 
+                title="Service Packages | Transparent Legal Solutions"
+                description="Explore our tailored legal retention plans and consulting packages designed for individuals, SMEs, and law students."
+            />
             {/* Minimalist Hero Section */}
             <div className="bg-primary-darker py-20 border-b border-primary/20">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
