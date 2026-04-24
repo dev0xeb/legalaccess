@@ -10,3 +10,4 @@ export { WhatsAppWidget } from './WhatsAppWidget';
 export { ScrollToTop } from './ScrollToTop';
 export { CookieConsent } from './CookieConsent';
 export { SEO } from './SEO';
+export { LeadCaptureModal } from './LeadCaptureModal';

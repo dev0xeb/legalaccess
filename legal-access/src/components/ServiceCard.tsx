@@ -60,7 +60,7 @@ export function ServiceCard({
       >
         {/* Front - Image */}
         <motion.div
-          animate={{
+           animate={{
             rotateY: isFlipped ? 180 : 0,
             opacity: isFlipped ? 0 : 1,
             pointerEvents: isFlipped ? 'none' : 'auto'
@@ -69,9 +69,10 @@ export function ServiceCard({
           style={{ backfaceVisibility: 'hidden' }}
           className="absolute w-full h-full rounded-lg overflow-hidden"
         >
-          <div
-            className="w-full h-full bg-center bg-cover"
-            style={{ backgroundImage: `url(${image})` }}
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 text-white">
@@ -109,9 +110,10 @@ export function ServiceCard({
     >
       {image ? (
         <div className="relative h-56 bg-gray-200 overflow-hidden">
-          <div
-            className="w-full h-full bg-center bg-cover hover:scale-110 transition-transform duration-500"
-            style={{ backgroundImage: `url(${image})` }}
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
             <h3 className="text-2xl font-bold">{title}</h3>

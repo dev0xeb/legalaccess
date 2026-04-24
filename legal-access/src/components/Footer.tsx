@@ -1,34 +1,27 @@
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import MainLogo from '../assets/Main_Logo-removebg-preview.png';
-import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 export function Footer() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
-  }, []);
-
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    try {
-      const templateParams = {
-        to_email: 'legalaccesshq@gmail.com',
-        from_email: email,
-        subject: 'New Newsletter Subscription',
-        message: `New newsletter subscription request from: ${email}`,
-      };
+    const FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/formResponse";
+    const EMAIL_ENTRY_ID = "entry.1045791205"; // Submitting email to the same form
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
-        templateParams
-      );
+    const formData = new FormData();
+    formData.append(EMAIL_ENTRY_ID, email);
+
+    try {
+      await fetch(FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
 
       setStatus('success');
       setEmail('');

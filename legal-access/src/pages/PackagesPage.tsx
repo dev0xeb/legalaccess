@@ -19,6 +19,19 @@ export function PackagesPage() {
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
         },
         {
+            title: "FOR LAWYERS",
+            subtitle: "Lawyer to Lawyer",
+            features: [
+                "Professional networking",
+                "Client referrals",
+                "Case management tools",
+                "Verified legal expert status",
+                "Collaboration opportunities",
+                "Resource sharing"
+            ],
+            link: "https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
+        },
+        {
             title: "CONNECT A LAWYER",
             subtitle: "Lawyers to Clients",
             features: [
@@ -70,8 +83,8 @@ export function PackagesPage() {
             </div>
 
             {/* Elegant Service Cards */}
-            <Section className="-mt-8 relative z-10 px-4">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Section className="-mt-8 relative z-10 px-4" width="max-w-[1600px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
                     {pillars.map((pillar, index) => (
                         <motion.div 
                             key={index}

@@ -16,8 +16,8 @@ export function HomePage() {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Law Made Easy. Access Made Possible."
-        description="Legal Access is Nigeria's leading legal-tech platform, providing end-to-end legal solutions, SME consulting, and academic tutoring for law students."
+        title="Legal Access | Law Made Easy. Access Made Possible."
+        description="Legal Access is Nigeria's leading legal-tech platform, providing end-to-end legal solutions, SME consulting, and academic tutoring for law students in Africa."
       />
       {/* Hero Section */}
       <Section className="bg-gradient-to-r from-gray-50 to-white pt-20">
@@ -87,7 +87,7 @@ export function HomePage() {
             Our tech-driven approach offers 24/7 support, bridging the gap between traditional law and the digital age.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto text-left">
            <motion.div {...fadeInUp} className="bg-primary p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-primary-light transition-colors">
              <h3 className="text-2xl font-bold mb-4 text-white">For Clients</h3>
              <p className="text-gray-200 text-lg leading-relaxed">
@@ -95,27 +95,33 @@ export function HomePage() {
              </p>
            </motion.div>
            <motion.div {...fadeInUp} className="bg-primary p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-primary-light transition-colors">
-             <h3 className="text-2xl font-bold mb-4 text-white">For Professionals</h3>
+             <h3 className="text-2xl font-bold mb-4 text-white">For Lawyers</h3>
              <p className="text-gray-200 text-lg leading-relaxed">
-               We bridge the divide by connecting law students to elite mentors, domestic internships, and exclusive international opportunities.
+               Expand your practice and connect with a network of verified legal professionals and client referrals.
+             </p>
+           </motion.div>
+           <motion.div {...fadeInUp} className="bg-primary p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-primary-light transition-colors">
+             <h3 className="text-2xl font-bold mb-4 text-white">For Students</h3>
+             <p className="text-gray-200 text-lg leading-relaxed">
+               We bridge the divide by connecting law students to elite mentors, internships, and exclusive opportunities.
              </p>
            </motion.div>
         </div>
       </Section>
 
       {/* Our Services Section */}
-      <Section id="services" className="bg-white">
+      <Section id="services" className="bg-white" width="max-w-[1600px]">
         <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="mb-4 text-primary-darker">
             Our Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Three powerful solutions designed to meet your legal needs
+            Four powerful solutions designed to meet your legal needs
           </p>
         </motion.div>
 
-        {/* 3-Column Grid (Desktop) / Carousel (Mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 4-Column Grid (Desktop) / Carousel (Mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -424,6 +430,14 @@ const services = [
     image: new URL('../assets/Exploring Vista Law_ Legal Services And Resources In Vista CA.jpg', import.meta.url).href,
     backText: 'Comprehensive legal setup, tax compliance, SOP implementation, and strategic business support tailored for SMEs.',
     buttonText: 'View Packages',
+    buttonLink: '/packages',
+  },
+  {
+    title: 'FOR LAWYERS',
+    description: 'Lawyer to Lawyer: Professional networking, client referrals, and state-of-the-art case management tools.',
+    image: new URL('../assets/Gavel.png', import.meta.url).href,
+    backText: 'Connect, collaborate, and expand your practice with legal network tools. Join a community of verified legal experts.',
+    buttonText: 'Join the Network',
     buttonLink: '/packages',
   },
   {

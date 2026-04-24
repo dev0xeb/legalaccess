@@ -6,8 +6,7 @@ import { mailIcon, phoneIcon, whatsappIcon } from '../assets/icons/icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -41,49 +40,30 @@ const itemVariants = {
 
 export function ContactPage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
-  }, []);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      setSubmitError(null);
+  const onSubmit = (data: FormData) => {
+    const subject = encodeURIComponent(data.subject);
+    const body = encodeURIComponent(
+      `Name: ${data.fullName}\n` +
+      `Phone: ${data.phone}\n` +
+      `Email: ${data.email}\n\n` +
+      `Message:\n${data.message}`
+    );
 
-      const templateParams = {
-        to_email: 'legalaccesshq@gmail.com',
-        from_name: data.fullName,
-        from_email: data.email,
-        phone: data.phone,
-        subject: data.subject,
-        message: data.message,
-      };
+    window.location.href = `mailto:legalaccesshq@gmail.com?subject=${subject}&body=${body}`;
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
-        templateParams
-      );
-
-      setSubmitSuccess(true);
-      reset();
-      // Reset success state after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    } catch (error) {
-      console.error('Email send error:', error);
-      setSubmitError('Failed to send message. Please try again or contact us directly.');
-    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => setSubmitSuccess(false), 5000);
   };
 
   const whatsappNumber = '+2348052829096';
@@ -277,45 +257,6 @@ export function ContactPage() {
                 Send Another Message
               </motion.button>
             </motion.div>
-          ) : submitError ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-2xl shadow-lg p-12 text-center border-2 border-red-500"
-            >
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl">
-                  ⚠️
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-red-600 mb-3">
-                Error Sending Message
-              </h3>
-              <p className="text-gray-700 mb-6">
-                {submitError}
-              </p>
-              <div className="space-y-3">
-                <p className="text-sm text-gray-600">
-                  Please try again or contact us directly:
-                </p>
-                <a
-                  href="mailto:legalaccesshq@gmail.com"
-                  className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-full hover:bg-primary-dark transition-all"
-                >
-                  Email Us
-                </a>
-              </div>
-              <motion.button
-                onClick={() => {
-                  setSubmitError(null);
-                  reset();
-                }}
-                className="mt-4 px-6 py-2 text-primary font-medium hover:text-primary-dark transition-all"
-              >
-                Try Again
-              </motion.button>
-            </motion.div>
           ) : (
             <motion.form
               onSubmit={handleSubmit(onSubmit)}
@@ -419,11 +360,10 @@ export function ContactPage() {
               >
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
                   size="lg"
                   variant="primary"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Send Message
                 </Button>
                 <Button
                   type="button"

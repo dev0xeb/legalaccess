@@ -1,4 +1,4 @@
-import { Section, SEO } from '../components';
+import { Section } from '../components/Section';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
@@ -50,10 +50,6 @@ export function HowItWorksPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO 
-        title="How It Works | Simplified Legal Process"
-        description="Discover our streamlined 3-step protocol to getting expert legal support and consulting from the Legal Access platform."
-      />
       {/* Hero Banner */}
       <div className="bg-gradient-to-br from-primary via-primary-darker to-primary-darker py-32 relative overflow-hidden">
         {/* Decorative background elements */}

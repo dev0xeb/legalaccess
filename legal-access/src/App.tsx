@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Header, Footer, CategoryModal, ArbitrationModal, WhatsAppWidget, ScrollToTop, CookieConsent } from './components';
+import { Header, Footer, CategoryModal, ArbitrationModal, WhatsAppWidget, ScrollToTop, CookieConsent, LeadCaptureModal } from './components';
 import { ModalProvider } from './context/ModalContext';
 import {
   HomePage,
@@ -20,6 +20,7 @@ function App() {
         <Router>
           <ScrollToTop />
           <CookieConsent />
+          <LeadCaptureModal />
           <CategoryModal />
           <ArbitrationModal />
           <WhatsAppWidget />

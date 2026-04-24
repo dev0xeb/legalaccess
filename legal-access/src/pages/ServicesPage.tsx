@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
 import { Section, SEO } from '../components';
-import { Shield, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, BookOpen, ChevronLeft, ChevronRight, Gavel, User } from 'lucide-react';
 import { useState } from 'react';
 
 const containerVariants = {
@@ -39,33 +39,45 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'individuals',
-    icon: Shield,
-    title: 'Individuals',
-    description: 'Practical, affordable legal help for everyday matters and disputes. Includes contract reviews, dispute resolution, and family & personal law.',
-    gradient: 'from-primary-light to-primary',
-    features: [
-      'Affordable membership plans',
-      'Access to verified legal professionals',
-      'Flexible consultation options',
-      'Confidential support',
-    ],
-    buttonText: 'Join as Client',
-    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
-  },
-  {
     id: 'sme',
     icon: Shield,
     title: 'SMEs & Businesses',
-    description: 'Subscription-based legal support for growing enterprises and entrepreneurs. Includes business registration, compliance, and ongoing legal protection.',
-    gradient: 'from-accent-orange to-accent-orange',
+    description: 'Subscription-based legal support for individuals and small businesses.',
+    gradient: 'from-primary-darker to-primary-dark',
     features: [
-      'Business registration & Incorporation',
-      'Compliance & Contract Management',
+      'Business registration',
+      'Compliance & contracts',
       'Ongoing legal protection',
-      'Dedicated support',
     ],
-    buttonText: 'Join as Business',
+    buttonText: 'Get Legal Protection',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
+  },
+  {
+    id: 'lawyers',
+    icon: Gavel,
+    title: 'For Lawyers',
+    description: 'Connect, collaborate, and expand your practice with legal network tools.',
+    gradient: 'from-primary-darker to-primary-dark',
+    features: [
+      'Client referrals',
+      'Professional network access',
+      'Case management tools',
+    ],
+    buttonText: 'Join the Network',
+    buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466',
+  },
+  {
+    id: 'individuals',
+    icon: User,
+    title: 'Individuals',
+    description: 'Practical, affordable legal help for everyday matters and disputes.',
+    gradient: 'from-primary-darker to-primary-dark',
+    features: [
+      'Contract reviews',
+      'Dispute resolution',
+      'Family & personal law',
+    ],
+    buttonText: 'Get Help',
     buttonLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform',
   },
   {
@@ -73,7 +85,7 @@ const services: ServiceItem[] = [
     icon: BookOpen,
     title: 'Law Students',
     description: 'Academic excellence and bar exam preparation for law students. Learn from experienced educators with personalized guidance.',
-    gradient: 'from-accent-green to-accent-green',
+    gradient: 'from-primary-darker to-primary-dark',
     features: [
       'Bar exam coaching',
       'One-on-one tutoring',
@@ -115,14 +127,14 @@ export function ServicesPage() {
               Our Services
             </h1>
             <p className="text-lg md:text-xl text-white text-opacity-95 max-w-2xl leading-relaxed">
-              Comprehensive legal solutions designed for individuals, businesses, and students. Choose the service that fits your needs.
+              Comprehensive legal solutions designed for individuals, businesses, students, and legal professionals.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 3-Column Services Grid (Desktop) / Carousel (Mobile) */}
-      <Section className="bg-white">
+      {/* 4-Column Services Grid (Desktop) / Carousel (Mobile) */}
+      <Section className="bg-white" width="max-w-[1600px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,16 +142,16 @@ export function ServicesPage() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-primary-darker mb-4">
-            Three Pillars of Legal Support
+            Our Comprehensive Solutions
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Whether you're an individual, business, student, or legal professional, we have the right support for you.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Legal solutions designed specifically for SMEs, individuals, lawyers, and law students.
           </p>
         </motion.div>
 
-        {/* Desktop Grid - Hidden on Mobile */}
+        {/* Desktop Grid - Updated to 4 columns */}
         <motion.div
-          className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -149,6 +161,7 @@ export function ServicesPage() {
             <ServiceCardComponent key={service.id} service={service} />
           ))}
         </motion.div>
+
 
         {/* Mobile Carousel - Hidden on Desktop */}
         <div className="md:hidden relative">
@@ -310,30 +323,30 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col"
-      whileHover={{ translateY: -8 }}
+      className="bg-gradient-to-br from-primary-darker to-primary-dark rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full flex flex-col border border-white/10"
+      whileHover={{ translateY: -10 }}
     >
-      {/* Card Header with Icon */}
-      <div className={`bg-primary-darker p-8 flex flex-col justify-center items-center min-h-52`}>
-        <motion.div
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-        >
-          <IconComponent size={72} className="text-white mb-4" />
-        </motion.div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white text-center leading-tight">
-          {service.title}
-        </h3>
-      </div>
-
-      {/* Card Body */}
+      {/* Card Content Wrapper */}
       <div className="p-8 flex flex-col flex-1">
-        <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-          {service.description}
-        </p>
+        {/* Icon Center - Requested Change */}
+        <div className="mb-8 flex justify-center">
+          <div className="w-14 h-14 bg-primary/40 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20 shadow-inner">
+            <IconComponent size={28} className="text-white" />
+          </div>
+        </div>
 
-        {/* Features List */}
-        <ul className="space-y-3 mb-10 flex-1">
+        {/* Title & Description Left - Requested Change */}
+        <div className="mb-6 text-left">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+            {service.title}
+          </h3>
+          <p className="text-white/80 text-base leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+
+        {/* Features List Left */}
+        <ul className="space-y-4 mb-10 flex-1 text-left">
           {service.features.map((feature) => (
             <motion.li
               key={feature}
@@ -342,48 +355,25 @@ function ServiceCardComponent({ service }: ServiceCardComponentProps) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <span className="text-accent-green font-bold text-xl mt-1">✓</span>
-              <span className="text-gray-700 text-base">{feature}</span>
+              <span className="text-accent-green font-bold text-lg mt-0.5">✓</span>
+              <span className="text-white/90 text-sm md:text-base font-medium">{feature}</span>
             </motion.li>
           ))}
         </ul>
 
-        {/* CTA Buttons */}
-        {service.dualButtons ? (
-          <div className="flex gap-3 flex-col sm:flex-row">
-            <motion.a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Need Help?
-            </motion.a>
-            <motion.a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScsDyhjg1iQSeQ3qzhpv5aCW6GODOA01yU01-uoTSzv4ulDTQ/viewform?fbzx=819630271247203466"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-accent-green hover:bg-green-700 text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Register Lawyer
-            </motion.a>
-          </div>
-        ) : (
+        {/* CTA Button */}
+        <div>
           <motion.a
             href={service.buttonLink!}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-bold rounded-full text-center transition-all duration-300 shadow-md"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-block w-full px-6 py-4 bg-primary hover:bg-primary-light text-white font-bold rounded-full text-center transition-all duration-300 shadow-md border border-white/10"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {service.buttonText}
           </motion.a>
-        )}
+        </div>
       </div>
     </motion.div>
   );

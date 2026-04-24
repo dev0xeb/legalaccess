@@ -1,46 +1,27 @@
 import { motion } from 'framer-motion';
 import { Section, SEO } from '../components';
 import { Mail, Bell, Scale, Handshake, Sparkles, Rocket } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
+
 
 export function ComingSoonPage() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
-  }, []);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setStatus('loading');
 
-    try {
-      const templateParams = {
-        to_email: 'legalaccesshq@gmail.com',
-        from_email: email,
-        subject: 'New Pro-Bono Launch Notification Request',
-        message: `New launch notification request from: ${email}`,
-      };
+    const subject = encodeURIComponent('Launch Notification Request');
+    const body = encodeURIComponent(`Hello Legal Access Team,\n\nPlease notify me when the Pro Bono & Community Justice platform launches.\n\nSubscriber Email: ${email}`);
+    
+    // Open mail client
+    window.location.href = `mailto:legalaccesshq@gmail.com?subject=${subject}&body=${body}`;
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
-        templateParams
-      );
-
-      setStatus('success');
-      setEmail('');
-      setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
-      console.error('Subscription error:', error);
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
-    }
+    setStatus('success');
+    setEmail('');
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
@@ -213,16 +194,14 @@ export function ComingSoonPage() {
               placeholder="Enter your email"
               className="flex-1 px-6 py-4 rounded-lg border-2 border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               required
-              disabled={status === 'loading'}
             />
             <motion.button
               type="submit"
-              disabled={status === 'loading'}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-primary text-white font-black rounded-lg hover:bg-primary-dark transition-all shadow-md hover:shadow-lg whitespace-nowrap disabled:opacity-50"
+              className="px-8 py-4 bg-primary text-white font-black rounded-lg hover:bg-primary-dark transition-all shadow-md hover:shadow-lg whitespace-nowrap"
             >
-              {status === 'loading' ? 'Submitting...' : 'Notify Me'}
+              Notify Me
             </motion.button>
           </motion.form>
 
@@ -236,19 +215,6 @@ export function ComingSoonPage() {
               <p className="text-accent-green font-bold flex items-center justify-center gap-2">
                 <Mail size={20} />
                 Thanks! We'll notify you soon.
-              </p>
-            </motion.div>
-          )}
-
-          {status === 'error' && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="mt-6 p-4 bg-red-500/20 border border-red-500 rounded-lg text-center"
-            >
-              <p className="text-red-600 font-bold flex items-center justify-center gap-2">
-                An error occurred. Please try again.
               </p>
             </motion.div>
           )}

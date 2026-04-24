@@ -5,8 +5,6 @@ import { Button } from '../components/Button';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -42,44 +40,31 @@ export function FormPage() {
   const { category = 'individuals-businesses' } = useParams<{ category: string }>();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default-key');
-  }, []);
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      const templateParams = {
-        to_email: 'legalaccesshq@gmail.com',
-        from_name: data.fullName,
-        from_email: data.email,
-        phone: data.phone,
-        subject: `${categoryTitles[category] || 'New Application'} - ${data.subject}`,
-        message: data.message,
-      };
+  const onSubmit = (data: FormData) => {
+    const categoryTitle = categoryTitles[category] || 'New Application';
+    const subject = encodeURIComponent(`${categoryTitle} - ${data.subject}`);
+    const body = encodeURIComponent(
+      `Category: ${categoryTitle}\n` +
+      `Name: ${data.fullName}\n` +
+      `Phone: ${data.phone}\n` +
+      `Email: ${data.email}\n\n` +
+      `Message:\n${data.message}`
+    );
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default-service',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default-template',
-        templateParams
-      );
+    window.location.href = `mailto:legalaccesshq@gmail.com?subject=${subject}&body=${body}`;
 
-      console.log('Form submitted:', { category, ...data });
-      alert("Thank you! We've received your request and will contact you soon.");
-      reset();
-      navigate('/');
-    } catch (error) {
-      console.error('Email send error:', error);
-      alert('An error occurred while sending your request. Please try again or contact us directly.');
-    }
+    alert("Thank you! Your mail application has been prepared. Please click 'Send' in your email app.");
+    reset();
+    navigate('/');
   };
 
   const title = categoryTitles[category] || 'Contact Us';
@@ -192,11 +177,9 @@ export function FormPage() {
             <div className="flex gap-4">
               <Button
                 type="submit"
-                disabled={isSubmitting}
                 size="lg"
-                className={isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit'}
+                Submit Application
               </Button>
               <Button
                 type="button"
