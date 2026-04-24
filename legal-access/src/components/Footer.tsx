@@ -6,31 +6,17 @@ export function Footer() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    
+    const subject = encodeURIComponent("Newsletter Subscription Request");
+    const body = encodeURIComponent(`Hello Legal Access Team,\n\nI would like to subscribe to your monthly newsletter.\n\nEmail: ${email}\n\nThank you!`);
+    
+    window.location.href = `mailto:legalaccesshq@gmail.com?subject=${subject}&body=${body}`;
 
-    const FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdgxUK4OwQzaecMbM_NXBivzmrQChzorIyk2dfUgIOVfP-bXw/formResponse";
-    const EMAIL_ENTRY_ID = "entry.1045791205"; // Submitting email to the same form
-
-    const formData = new FormData();
-    formData.append(EMAIL_ENTRY_ID, email);
-
-    try {
-      await fetch(FORM_ACTION_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      });
-
-      setStatus('success');
-      setEmail('');
-      setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
-      console.error('Newsletter error:', error);
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
-    }
+    setStatus('success');
+    setEmail('');
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
